@@ -1,16 +1,16 @@
 const galleries = {
 	blue: [
-		{ type: 'image', src: './public/assets/images/bluster-2.jpg' },
-		{ type: 'image', src: './public/assets/images/bluster-3.jpg' },
-		{ type: 'image', src: './public/assets/images/bluster-4.jpg' },
-		{ type: 'image', src: './public/assets/images/bluster-5.jpg' },
-		{ type: 'video', src: './public/assets/video/blaster.mp4' },
+		{ type: 'image', src: './assets/images/bluster-2.jpg' },
+		{ type: 'image', src: './assets/images/bluster-3.jpg' },
+		{ type: 'image', src: './assets/images/bluster-4.jpg' },
+		{ type: 'image', src: './assets/images/bluster-5.jpg' },
+		{ type: 'video', src: './assets/video/blaster.mp4' },
 	],
-	red: [{ type: 'image', src: './public/assets/images/red.webp' }],
+	red: [{ type: 'image', src: './assets/images/red.webp' }],
 	black: [
-		{ type: 'image', src: './public/assets/images/black-1.webp' },
-		{ type: 'image', src: './public/assets/images/black-2.webp' },
-		{ type: 'image', src: './public/assets/images/black-3.webp' },
+		{ type: 'image', src: './assets/images/black-1.webp' },
+		{ type: 'image', src: './assets/images/black-2.webp' },
+		{ type: 'image', src: './assets/images/black-3.webp' },
 	],
 }
 
@@ -105,7 +105,7 @@ colorPickers.forEach(picker => {
 })
 
 function preloadVideo() {
-	const videoSrc = './public/assets/video/blaster.mp4'
+	const videoSrc = './assets/video/blaster.mp4'
 	const video = document.createElement('video')
 	video.src = videoSrc
 	video.preload = 'auto'
