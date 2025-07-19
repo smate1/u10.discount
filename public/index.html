@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bluster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+  <main class="main">
+    <header class="header" id="header">
+      <div class="container">
+        <div class="header__top">
+          <div class="header__left">
+            <p class="header__discount">UA діскаунт клуб</p>
+            <p class="header__text">Іграшки за діскаунт цінами</p>
+          </div>
+          <a class="header__order" href="#">
+            <img src="./assets/images/telegram.svg" alt="">
+            <p class="header__text">
+              оформити замовлення без <br> зідзвону в телеграм боті
+            </p>
+          </a>
+          <div class="header__right">
+            <a class="header__phone" href="+380952231710">
+              +38 (095) 223 - 17 - 10
+            </a>
+            <a class="header__call" href="#">
+              Замовити дзвінок
+            </a>
+          </div>
+        </div>
+        <nav class="header__nav">
+          <ul class="header__list">
+            <li class="header__item">
+              <a class="header__link" href="#header">Головна</a>
+            </li>
+            <li class="header__item">
+              <a class="header__link" href="#catalog">Каталог</a>
+            </li>
+            <li class="header__item">
+              <a class="header__link" href="#contacts">Контакти</a>
+            </li>
+            <li class="header__item">
+              <a class="header__link" href="#about">Про нас</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header__inner">
+          <div class="header__content">
+            <h1 class="header__title">Знижка до <span>40%</span></h1>
+            <h4 class="header__subtitle">на водний електробластер</h4>
+            <p class="header__price">1200₴</p>
+            <div class="header__amount">Залишилось <span>50</span> з <span>540</span> штук</div>
+            <button class="header__order-btn" id="order">
+              Замовити бластер
+            </button>
+            <div class="header__gift">
+              <img class="header__gift-img" src="./assets/images/gift.png" alt="">
+              <p class="header__gift-text">Додатковий магазин в подарунок</p>
+            </div>
+            <div class="header__info-items">
+              <div class="header__info-item">
+                <div class="header__item-inner">
+                  <div class="header__item-info">
+                    Дальність стрільби
+                  </div>
+                  <div class="header__item-num">
+                    10 метрів
+                  </div>
+                </div>
+              </div>
+              <div class="header__info-item">
+                <div class="header__item-inner">
+                  <div class="header__item-info header__item-info--capacity">
+                    великий 500мл та малий 50мл
+                  </div>
+                  <div class="header__item-num">
+                    2 магазини
+                  </div>
+                </div>
+              </div>
+              <div class="header__info-item">
+                <div class="header__item-inner">
+                  <div class="header__item-info">
+                    зарядка
+                  </div>
+                  <div class="header__item-num">
+                    USB
+                  </div>
+                </div>
+              </div>
+              <div class="header__info-item">
+                <div class="header__item-inner">
+                  <div class="header__item-num">
+                    Кнопка швидкого скиду магазина
+                  </div>
+                </div>
+              </div>
+              <div class="header__info-item">
+                <div class="header__item-inner">
+                  <div class="header__item-num">
+                    Рухающийся затвор
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="header__gallery">
+            <!-- Головне медіа -->
+            <!-- Головне медіа -->
+            <div class="header__gallery-main" id="mainMediaContainer">
+              <!-- буде додано скриптом -->
+            </div>
+
+
+            <!-- Прев'ю -->
+            <div class="header__gallery-additional" id="thumbnails">
+              <!-- буде оновлюватись скриптом -->
+            </div>
+
+            <!-- Кольори -->
+            <div class="header__gallery-colors">
+              <img class="color-picker" src="./assets/images/blue.webp" data-color="blue" alt="Blue">
+              <img class="color-picker" src="./assets/images/red.webp" data-color="red" alt="Red">
+              <img class="color-picker" src="./assets/images/black-1.webp" data-color="black" alt="Black">
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="set">
+      <div class="container">
+        <h2 class="set__title title">
+          Комплектація
+        </h2>
+        <div class="set_img">
+          <img src="./assets/images/set.png" alt="">
+
+          <div class="set__item item1">
+            <img class="set__item-img" src="./assets/images/set-1.svg" alt="">
+            <p class="set__item-text">10 метрів</p>
+          </div>
+          <div class="set__item item2">
+            <img class="set__item-img" src="./assets/images/set-2.svg" alt="">
+            <p class="set__item-text">10 метрів</p>
+          </div>
+          <div class="set__item item3">
+            <img class="set__item-img" src="./assets/images/set-3.svg" alt="">
+            <p class="set__item-text">10 метрів</p>
+          </div>
+          <div class="set__item item4">
+            <img class="set__item-img" src="./assets/images/set-4.svg" alt="">
+            <p class="set__item-text">10 метрів</p>
+          </div>
+          <div class="set__item item5">
+            <img class="set__item-img" src="./assets/images/set-5.svg" alt="">
+            <p class="set__item-text">10 метрів</p>
+          </div>
+          <div class="set__item item6">
+            <img class="set__item-img" src="./assets/images/set-6.svg" alt="">
+            <p class="set__item-text">10 метрів</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="order"  id="contacts">
+      <div class="container">
+        <div class="order__inner">
+          <form class="order__form order__form--first">
+            <h6 class="order__title">
+              Заповнити форму
+            </h6>
+            <input class="order__input" type="number" placeholder="Ваш номер" required>
+            <div class="order__btn-wrapper">
+              <button class="order__btn" id="order-btn">
+                Замовити бластер
+              </button>
+            </div>
+          </form>
+          <a class="order__link order__link-first" href="#">
+            <img class="order__link-img" src="./assets/images/telegram.svg" alt="">
+            <p class="order__link-text">
+              замовити та оплатити через ТГ бот
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+    <section class="benefits">
+      <div class="block-container">
+        <div class="benefits__inner">
+          <div class="benefits__content">
+            <div class="benefits__subtitle">
+              Головні
+            </div>
+            <h2 class="benefits__title title">
+              Переваги водного електробластера
+            </h2>
+            <div class="benefits__items">
+              <div class="benefits__item">
+                <div class="benefits__item-title">
+                  Можна грати довго завдяки великому акумулятору
+                </div>
+                <p class="benefits__item-text">
+                  The machined kettle has a smooth black finish and contemporary shape that stands
+                  apart from most plastic appliances.
+                </p>
+              </div>
+              <div class="benefits__item">
+                <div class="benefits__item-title">
+                  Є два магазини що дає змогу тактичним перезарядкам
+                </div>
+                <p class="benefits__item-text">
+                  Shaped for steady pours and insulated to prevent burns.
+                </p>
+              </div>
+              <div class="benefits__item">
+                <div class="benefits__item-title">
+                  Велика дальність стрільби
+                </div>
+                <p class="benefits__item-text">
+                  The one button control has a digital readout for setting temperature and turning the
+                  kettle on and off.
+                </p>
+              </div>
+              <div class="benefits__item">
+                <div class="benefits__item-title">
+                  Гарний привід намочити партнера коли діти награлись
+                </div>
+                <p class="benefits__item-text">
+                  Designed specifically for controlled pour-overs that don't slash or sputter.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="benefits__photos">
+            <div class="benefits__photo big">
+              <img src="./assets/images/benefits-1.png" alt="">
+            </div>
+            <div class="benefits__photos-row">
+              <div class="benefits__photo small video-preview">
+                <img src="./assets/images/benefits-2.png" alt="Video preview">
+                <button class="play-button" onclick="openVideoModal()"></button>
+              </div>
+              <div class="benefits__photo small">
+                <img src="./assets/images/benefits-3.png" alt="">
+              </div>
+            </div>
+          </div>
+
+          <!-- Модальне вікно з відео -->
+          <div class="video-modal" id="videoModal" style="display: none;">
+            <div class="video-modal__content">
+              <span class="video-modal__close" onclick="closeVideoModal()">&times;</span>
+              <video id="videoPlayer" width="800" height="450" controls>
+                <source src="./assets/video/blaster.mp4" type="video/mp4">
+                Ваш браузер не підтримує відтворення відео.
+              </video>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section class="choice" id="catalog">
+      <div class="container">
+        <h2 class="choice__title title">
+          Виберіть свій набір
+        </h2>
+        <div class="choice__items">
+          <div class="choice__item">
+            <div class="choice__img-wrapper">
+              <label>
+                <input class="heart__input" type="checkbox" class="likeToggle" />
+                <svg class="heart" xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 24">
+                  <path class="heart-shape heart-outline" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+         2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09 
+         C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 
+         22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#FF487E" stroke="#FF487E" stroke-width="1.3" />
+                </svg>
+              </label>
+              </svg><img class="choice__item-img" src="./assets/images/choice-red.png" alt="">
+            </div>
+            <p class="choice__item-text">
+              Водяной пистолет Weal Maker электрический
+              с затвором, 2 обоймы, зарядка от USB
+            </p>
+            <button class="choice__item-btn">
+              Замовити
+            </button>
+          </div>
+          <div class="choice__item">
+            <div class="choice__img-wrapper">
+              <label>
+                <input class="heart__input" type="checkbox" class="likeToggle" />
+                <svg class="heart" xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 24">
+                  <path class="heart-shape heart-outline" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+         2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09 
+         C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 
+         22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#FF487E" stroke="#FF487E" stroke-width="1.3" />
+                </svg>
+              </label>
+
+              <img class="choice__item-img" src="./assets/images/choice-black.png" alt="">
+            </div>
+
+            <p class="choice__item-text">
+              Водяной пистолет Weal Maker электрический
+              с затвором, 2 обоймы, зарядка от USB
+            </p>
+            <button class="choice__item-btn">
+              Замовити
+            </button>
+          </div>
+          <div class="choice__item">
+            <div class="choice__img-wrapper">
+              <label>
+                <input class="heart__input" type="checkbox" class="likeToggle" />
+                <svg class="heart" xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 24">
+                  <path class="heart-shape heart-outline" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                       2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09 
+                       C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 
+                       22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#FF487E" stroke="#FF487E"
+                    stroke-width="1.3" />
+                </svg>
+              </label>
+              <img class="choice__item-img" src="./assets/images/choice-double.png" alt="">
+            </div>
+            <p class="choice__item-text">
+              Водяной пистолет Weal Maker электрический
+              с затвором, 2 обоймы, зарядка от USB
+            </p>
+            <button class="choice__item-btn">
+              Замовити
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about__inner">
+          <div class="about__content about__content--first">
+            <div class="about__left about__left--first">
+              <h2 class="about__title title">
+                Про нас
+              </h2>
+              <p class="about__text">
+                Вітаю. Наша команда знаходиться в м.Харків та ми за будь яких обставин продовжуємо будувати бізнес в
+                Україні та
+                виготовляємо та імпортуємо лише якісний товар під наших любих клієнтів.
+              </p>
+              <p class="about__description">
+                Наші товари можна зустріти в таких мережах як:
+              </p>
+            </div>
+            <img class="about__img" src="./assets/images/about-1.png" alt="">
+          </div>
+          <div class="about__content about__content--second">
+            <div class="about__left about__left--second">
+              <div class="about__logos">
+                <img class="about__logo" src="./assets/images/epicentre.png" alt="">
+                <img class="about__logo" src="./assets/images/mimimishka.svg" alt="">
+                <img class="about__logo" src="./assets/images/ua-made.png" alt="">
+              </div>
+              <p class="about__text">
+                Та ми дуже відповідально відносимся до усіх зворотніх відгуків, тому будемо вдячні за Ваш відгук після
+                покупки.
+              </p>
+              <p class="about__text about__text--last">
+                Відгуки про роботу з нами ви можете погортати нижче, а також подивитись в обличчя команді :)
+              </p>
+            </div>
+            <img class="about__img" src="./assets/images/about-2.png" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="order">
+      <div class="container">
+        <div class="order__inner order__inner--second">
+          <form class="order__form order__form--second">
+            <h6 class="order__title">
+              Заповнити форму
+            </h6>
+            <input class="order__input" type="number" placeholder="Ваш номер" required>
+            <div class="order__btn-wrapper">
+              <button class="order__btn" id="order-btn">
+                Замовити бластер
+              </button>
+            </div>
+          </form>
+          <a class="order__link order__link-second" href="#">
+            <img class="order__link-img" src="./assets/images/telegram.svg" alt="">
+            <p class="order__link-text">
+              замовити та оплатити через ТГ бот
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+    <section class="feedbacks">
+      <div class="block-container">
+        <div class="feedbacks__inner">
+          <h2 class="feedbacks__title title">
+            Відгуки
+          </h2>
+          <div class="feedbacks__items">
+            <div class="feedbacks__item">
+              <div class="feedbacks__stars">
+                ★★★★★
+              </div>
+              <p class="feedbacks__text">
+                Іграшка топчик , ми з чоловіком зацінили, завтра поїду відвезу сину.
+                Надіюсь буде і надалі так працювати.
+              </p>
+              <div class="feedbacks__author">
+                <p class="feedbacks__name">
+                  Вера Федорович
+                </p>
+              </div>
+            </div>
+            <div class="feedbacks__item">
+              <div class="feedbacks__stars">
+                ★★★★★
+              </div>
+              <p class="feedbacks__text">
+                Вирішив порадувати молодшого брата і купив йому такий пістолет) Ціна класна, якісно зроблений пістолет,
+                стріляє далеко)
+              </p>
+              <div class="feedbacks__author">
+                <p class="feedbacks__name">
+                  Николай Трофимцев
+                </p>
+              </div>
+            </div>
+            <div class="feedbacks__item">
+              <div class="feedbacks__stars">
+                ★★★★★
+              </div>
+              <p class="feedbacks__text">
+                Классный пистолетик, покупал брату, остался доволен как слон) Хорошее качество, стреляет далеко) Спасибо
+                большое!)
+              </p>
+              <div class="feedbacks__author">
+                <p class="feedbacks__name">
+                  Михаил Кущенко
+                </p>
+              </div>
+            </div>
+            <div class="feedbacks__item">
+              <div class="feedbacks__stars">
+                ★★★★★
+              </div>
+              <p class="feedbacks__text">
+                Якісний пістолет, подарував племіннику на день народження) Він був у захваті) Дякую!
+              </p>
+              <div class="feedbacks__author">
+                <p class="feedbacks__name">
+                  Илья Колоджук
+                </p>
+              </div>
+            </div>
+            <div class="feedbacks__item">
+              <div class="feedbacks__stars">
+                ★★★★★
+              </div>
+              <p class="feedbacks__text">
+                Классный пистолет) Покупали ребенку на день рождение, был очень рад такому подарку)
+                Хорошая цена и быстро обработали заказ!
+              </p>
+              <div class="feedbacks__author">
+                <p class="feedbacks__name">
+                  Андрей Пешков
+                </p>
+              </div>
+            </div>
+            <div class="feedbacks__item">
+              <div class="feedbacks__stars">
+                ★★★★★
+              </div>
+              <p class="feedbacks__text">
+                Працює як заявлено, нарікань немає.
+              </p>
+              <div class="feedbacks__author">
+                <p class="feedbacks__name">
+                  Андрій Кришталь
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div class="footer__left">
+            <p class="footer__discount">UA діскаунт клуб</p>
+            <p class="footer__text">Іграшки за діскаунт цінами</p>
+            <a class="footer__telegram-link" href="#">
+              <img src="./assets/images/telegram.svg" alt="">
+              <p class="footer__telegram-text">
+                оформити замовлення без зідзвону в телеграм боті
+              </p>
+            </a>
+          </div>
+          <div class="footer__middle">
+            <a class="footer__phone" href="+380952231710">
+              +38 (095) 223 - 17 - 10
+            </a>
+            <a class="footer__call" href="#">
+              Замовити дзвінок
+            </a>
+            <ul class="footer__list">
+              <li class="footer__item">
+                <a class="footer__link" href="#header">Головна</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#catalog">Каталог</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#contacts">Контакти</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#about">Про нас</a>
+              </li>
+            </ul>
+          </div>
+          <form class="footer__form">
+            <h6 class="order__title">
+              Заповнити форму
+            </h6>
+            <input class="order__input" type="number" placeholder="Ваш номер" required>
+            <div class="order__btn-wrapper">
+              <button class="order__btn" id="order-btn">
+                Замовити бластер
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+      function openVideoModal() {
+        const modal = document.getElementById('videoModal');
+        const video = document.getElementById('videoPlayer');
+        modal.style.display = 'flex';
+        video.currentTime = 0;
+        video.play();
+      }
+
+      function closeVideoModal() {
+        const modal = document.getElementById('videoModal');
+        const video = document.getElementById('videoPlayer');
+        video.pause();
+        video.currentTime = 0;
+        modal.style.display = 'none';
+      }
+    </script>
+  </main>
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
