@@ -23,13 +23,13 @@
             <p class="header__discount">UA діскаунт клуб</p>
             <p class="header__text">Іграшки за діскаунт цінами</p>
           </div>
-          <a class="header__order" href="#">
+          <a class="header__order header__order-desktop" href="#">
             <img src="./assets/images/telegram.svg" alt="">
             <p class="header__text">
               оформити замовлення без <br> зідзвону в телеграм боті
             </p>
           </a>
-          <div class="header__right">
+          <div class="header__right header__right--desktop">
             <a class="header__phone" href="+380952231710">
               +38 (095) 223 - 17 - 10
             </a>
@@ -37,23 +37,38 @@
               Замовити дзвінок
             </a>
           </div>
+          <button class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+
         </div>
-        <nav class="header__nav">
+        <a class="header__order header__order-mobile" href="#">
+          <img src="./assets/images/telegram.svg" alt="">
+          <p class="header__text">
+            оформити замовлення без <br> зідзвону в телеграм боті
+          </p>
+        </a>
+        <nav class="header__nav" id="navMenu">
           <ul class="header__list">
-            <li class="header__item">
-              <a class="header__link" href="#header">Головна</a>
-            </li>
-            <li class="header__item">
-              <a class="header__link" href="#catalog">Каталог</a>
-            </li>
-            <li class="header__item">
-              <a class="header__link" href="#contacts">Контакти</a>
-            </li>
-            <li class="header__item">
-              <a class="header__link" href="#about">Про нас</a>
-            </li>
+            <li class="header__item"><a class="header__link" href="#header">Головна</a></li>
+            <li class="header__item"><a class="header__link" href="#catalog">Каталог</a></li>
+            <li class="header__item"><a class="header__link" href="#contacts">Контакти</a></li>
+            <li class="header__item"><a class="header__link" href="#about">Про нас</a></li>
           </ul>
+          <div class="header__right header__right--mobile">
+            <a class="header__phone" href="+380952231710">
+              +38 (095) 223 - 17 - 10
+            </a>
+            <a class="header__call" href="#">
+              Замовити дзвінок
+            </a>
+          </div>
         </nav>
+        <div id="overlay"></div>
+
         <div class="header__inner">
           <div class="header__content">
             <h1 class="header__title">Знижка до <span>40%</span></h1>
@@ -67,7 +82,7 @@
               <img class="header__gift-img" src="./assets/images/gift.png" alt="">
               <p class="header__gift-text">Додатковий магазин в подарунок</p>
             </div>
-            <div class="header__info-items">
+            <div class="header__info-items header__info-items--desktop">
               <div class="header__info-item">
                 <div class="header__item-inner">
                   <div class="header__item-info">
@@ -135,6 +150,52 @@
             </div>
           </div>
         </div>
+        <div class="header__info-items header__info-items--mobile">
+          <div class="header__info-item">
+            <div class="header__item-inner">
+              <div class="header__item-info">
+                Дальність стрільби
+              </div>
+              <div class="header__item-num">
+                10 метрів
+              </div>
+            </div>
+          </div>
+          <div class="header__info-item">
+            <div class="header__item-inner">
+              <div class="header__item-info header__item-info--capacity">
+                великий 500мл та малий 50мл
+              </div>
+              <div class="header__item-num">
+                2 магазини
+              </div>
+            </div>
+          </div>
+          <div class="header__info-item">
+            <div class="header__item-inner">
+              <div class="header__item-info">
+                зарядка
+              </div>
+              <div class="header__item-num">
+                USB
+              </div>
+            </div>
+          </div>
+          <div class="header__info-item">
+            <div class="header__item-inner">
+              <div class="header__item-num">
+                Кнопка швидкого скиду магазина
+              </div>
+            </div>
+          </div>
+          <div class="header__info-item">
+            <div class="header__item-inner">
+              <div class="header__item-num">
+                Рухающийся затвор
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
     <section class="set">
@@ -172,7 +233,7 @@
         </div>
       </div>
     </section>
-    <div class="order"  id="contacts">
+    <div class="order" id="contacts">
       <div class="container">
         <div class="order__inner">
           <form class="order__form order__form--first">
@@ -257,7 +318,6 @@
             </div>
           </div>
 
-          <!-- Модальне вікно з відео -->
           <div class="video-modal" id="videoModal" style="display: none;">
             <div class="video-modal__content">
               <span class="video-modal__close" onclick="closeVideoModal()">&times;</span>
@@ -385,7 +445,6 @@
         </div>
       </div>
     </section>
-
     <div class="order">
       <div class="container">
         <div class="order__inner order__inner--second">
@@ -550,7 +609,7 @@
           </form>
         </div>
       </div>
-    </footer>
+    </footer> -->
 
 
 
@@ -584,6 +643,32 @@
 
 
 
+    <script>
+      const burger = document.getElementById('burger');
+      const navMenu = document.getElementById('navMenu');
+      const navLinks = navMenu.querySelectorAll('a');
+      const overlay = document.getElementById('overlay');
+
+      function toggleMenu() {
+        burger.classList.toggle('active'); // додаємо цю стрічку
+        navMenu.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+      }
+
+      burger.addEventListener('click', toggleMenu);
+      overlay.addEventListener('click', toggleMenu);
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          burger.classList.remove('active'); // додаємо це, щоб хрестик повернувся в бургер
+          navMenu.classList.remove('active');
+          overlay.classList.remove('active');
+          document.body.classList.remove('no-scroll');
+        });
+      });
+
+    </script>
 
 
 
