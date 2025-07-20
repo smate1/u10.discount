@@ -77,7 +77,7 @@
                 <h4 class="header__subtitle header__mobile">на водний <span>1200₴</span> електробластер</h4>
               </div>
               <div class="header__amount header__desktop">Залишилось <span>50</span> з <span>540</span> штук</div>
-              <button class="header__order-btn header__desktop" id="order">
+              <button class="header__order-btn header__desktop" id="order-btn">
                 Замовити бластер
               </button>
               <div class="header__gift header__desktop">
@@ -149,7 +149,7 @@
               </div>
             </div>
           </div>
-          <button class="header__order-btn header__mobile" id="order">
+          <button class="header__order-btn header__mobile" id="order-btn">
             Замовити бластер
           </button>
           <div class="header__amount header__mobile">Залишилось <span>50</span> з <span>540</span> штук</div>
@@ -270,6 +270,54 @@
           </div>
         </div>
       </header>
+      <div class="order-popup" id="orderPopup">
+        <div class="order-popup__content">
+          <button class="order-popup__close" id="popupClose">&times;</button>
+
+          <div class="order__top">
+            <p class="order-popup__desc">
+              Водяной пистолет <b>Weal Maker</b> електричний с затвором, 2 обоймы, зарядка от USB
+            </p>
+            <div class="order-popup__price">
+              <span class="old-price">1500₴</span>
+              <span class="new-price">1099₴</span>
+            </div>
+          </div>
+          <div class="order-popup__gallery">
+            <img src="./assets/images/bluster-2.jpg" class="order-popup__main-img" alt="">
+            <div class="order-popup__colors">
+              <img class="color-picker" src="./assets/images/blue.webp" data-color="blue" alt="Blue">
+              <img class="color-picker" src="./assets/images/red.webp" data-color="red" alt="Red">
+              <img class="color-picker" src="./assets/images/black-1.webp" data-color="black" alt="Black">
+            </div>
+          </div>
+
+
+
+          <form class="order-popup__form">
+            <div class="order-popup__input-wrapper">
+              <select>
+                <option value="UA">UA</option>
+              </select>
+              <input type="tel" placeholder="098-000-00-00" required>
+            </div>
+
+            <label class="order-popup__checkbox">
+              <input type="checkbox">
+              не телефонувати
+            </label>
+
+            <p class="order-popup__note">
+              Якщо не хочете щоб ми підтверджували замовлення по телефону – можете оформити замовлення в Телеграм боті
+              натиснувши 'Купити'.
+            </p>
+
+            <button class="order-popup__submit">Замовити бластер</button>
+          </form>
+        </div>
+      </div>
+
+
       <section class="set">
         <div class="container">
           <h2 class="set__title title">
@@ -326,7 +374,7 @@
             </a>
           </div>
         </div>
-      </div> 
+      </div>
     </div>
     <section class="benefits">
       <div class="block-container">
@@ -402,7 +450,7 @@
 
         </div>
       </div>
-    </section> 
+    </section>
     <section class="choice" id="catalog">
       <div class="container">
         <h2 class="choice__title title">
@@ -426,7 +474,7 @@
               Водяной пистолет Weal Maker электрический
               с затвором, 2 обоймы, зарядка от USB
             </p>
-            <button class="choice__item-btn">
+            <button class="choice__item-btn" id="order-btn">
               Замовити
             </button>
           </div>
@@ -449,7 +497,7 @@
               Водяной пистолет Weal Maker электрический
               с затвором, 2 обоймы, зарядка от USB
             </p>
-            <button class="choice__item-btn">
+            <button class="choice__item-btn" id="order-btn">
               Замовити
             </button>
           </div>
@@ -471,7 +519,7 @@
               Водяной пистолет Weal Maker электрический
               с затвором, 2 обоймы, зарядка от USB
             </p>
-            <button class="choice__item-btn">
+            <button class="choice__item-btn" id="order-btn">
               Замовити
             </button>
           </div>
@@ -499,7 +547,7 @@
           </div>
         </div>
       </div>
-    </section> 
+    </section>
     <section class="about" id="about">
       <div class="container">
         <div class="about__inner">
@@ -537,10 +585,11 @@
             <img class="about__img about__img-second about__img-desktop" src="./assets/images/about-2.png" alt="">
           </div>
           <img class="about__img about__img-first about__img-mobile" src="./assets/images/about-1.png" alt="">
-          <div class="about__img-wrapper"><img class="about__img about__img-second about__img-mobile" src="./assets/images/about-2.png" alt=""></div>
+          <div class="about__img-wrapper"><img class="about__img about__img-second about__img-mobile"
+              src="./assets/images/about-2.png" alt=""></div>
         </div>
       </div>
-    </section> 
+    </section>
     <div class="order">
       <div class="container">
         <div class="order__inner order__inner--second">
@@ -563,7 +612,7 @@
           </a>
         </div>
       </div>
-    </div> 
+    </div>
     <section class="feedbacks">
       <div class="block-container">
         <div class="feedbacks__inner">
@@ -656,7 +705,7 @@
           </div>
         </div>
       </div>
-    </section> 
+    </section>
     <footer class="footer">
       <div class="container">
         <div class="footer__inner">
@@ -713,7 +762,7 @@
           </form>
         </div>
       </div>
-    </footer> 
+    </footer>
 
 
 

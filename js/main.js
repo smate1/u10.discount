@@ -63,6 +63,24 @@ function updateMain(type, src) {
 	}
 }
 
+document.querySelectorAll('#order-btn').forEach(btn => {
+	btn.addEventListener('click', function (e) {
+		e.preventDefault() // Щоб форма не сабмітилась
+		document.getElementById('orderPopup').classList.add('active')
+	})
+})
+
+document.getElementById('popupClose').addEventListener('click', function () {
+	document.getElementById('orderPopup').classList.remove('active')
+})
+
+document.addEventListener('keydown', function (e) {
+	if (e.key === 'Escape') {
+		document.getElementById('orderPopup').classList.remove('active')
+	}
+})
+
+
 function updateThumbnails(color) {
 	const items = galleries[color]
 	thumbnailsContainer.innerHTML = ''

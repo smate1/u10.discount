@@ -43,6 +43,166 @@ body {
 	margin: 0 auto;
 	padding: 0 10px;
 }
+
+.order-popup {
+	position: fixed;
+	inset: 0;
+	z-index: 9999;
+	background: rgba(0, 0, 0, 0.5);
+	display: none;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	
+}
+
+.order-popup.active {
+	display: flex;
+}
+.order__top {
+	display: flex;
+	justify-content: space-between;
+}
+.order-popup__content {
+	border-radius: 10px;
+background: #FFF;
+	padding: 30px;
+	width: 650px;
+	height: 445px;
+	position: relative;
+	font-family: 'Barlow', sans-serif;
+}
+
+.order-popup__close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 24px;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.order-popup__title {
+	font-size: 22px;
+	font-weight: bold;
+	margin-bottom: 12px;
+}
+
+.order-popup__title span {
+	color: #4b00ff;
+}
+
+.order-popup__desc {
+	color: #202020;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	margin-bottom: 15px;
+	line-height: 120%; /* 19.2px */
+	max-width: 535px;
+}
+
+.order-popup__gallery {
+	margin-bottom: 16px;
+	display: flex;
+}
+
+.order-popup__main-img {
+	width: 166px;
+	height: 146px;
+	margin-right: 8px;
+	border-radius: 4px;
+	border: 1px solid #dedede;
+	background: url(<path-to-image>) lightgray 14px 5px / 83.133% 94.521%
+		no-repeat;
+}
+
+.order-popup__colors {
+	display: flex;
+	gap: 8px;
+	justify-content: center;
+	margin-bottom: 16px;
+}
+
+.order-popup__colors img {
+	width: 46px;
+	height: 40px;
+border-radius: 4px;
+border: 1px solid #DEDEDE;
+background: #FFF;
+}
+
+.order-popup__price {
+	align-items: right;
+	gap: 0;
+	display: flex;
+	flex-direction: column;
+	font-size: 20px;
+	margin-bottom: 16px;
+}
+
+.old-price {
+	color: #6b7280;
+	text-align: right;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px; /* 142.857% */
+	text-decoration-line: line-through;
+}
+
+.new-price {
+	color: #271111;
+	text-align: left;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 24px; /* 133.333% */
+}
+
+.order-popup__form {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.order-popup__input-wrapper {
+	display: flex;
+	gap: 10px;
+}
+
+.order-popup__input-wrapper select,
+.order-popup__input-wrapper input {
+	flex: 1;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+}
+
+.order-popup__checkbox {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 14px;
+}
+
+.order-popup__note {
+	font-size: 12px;
+	color: #555;
+	line-height: 1.4;
+}
+
+.order-popup__submit {
+	padding: 14px;
+	background: #ffc800;
+	border: none;
+	border-radius: 12px;
+	font-weight: 600;
+	cursor: pointer;
+	font-size: 16px;
+}
+
 .burger {
 	display: flex;
 	flex-direction: column;
@@ -1173,13 +1333,13 @@ body {
 .choice__item-mobile {
 	display: none;
 }
-.footer__middle-mobile{
+.footer__middle-mobile {
 	display: none;
 	margin-top: 20px;
 }
 /* Сховати меню на малих екранах */
 @media (max-width: 1050px) {
-	.feedbacks__items{
+	.feedbacks__items {
 		grid-template-columns: 1fr 1fr;
 	}
 	.order__form--second {
@@ -1192,10 +1352,10 @@ body {
 		left: 50% !important;
 		transform: translateX(-50%) !important;
 	}
-	.footer__middle-desktop{
+	.footer__middle-desktop {
 		display: none;
 	}
-		.footer__middle-mobile{
+	.footer__middle-mobile {
 		display: block;
 	}
 	.order__inner--second {
@@ -1388,13 +1548,13 @@ body {
 	display: none;
 }
 @media (max-width: 770px) {
-	.footer .container{
+	.footer .container {
 		padding: 0 20px;
 	}
-	.order__title{
+	.order__title {
 		font-size: 18px;
 	}
-	.order__input{
+	.order__input {
 		margin-bottom: 32px;
 	}
 	.choice__item-text {
@@ -1535,22 +1695,22 @@ body {
 }
 
 @media (max-width: 650px) {
-	.footer__inner{
+	.footer__inner {
 		display: block;
 	}
-	.footer__form{
+	.footer__form {
 		width: 100%;
 	}
-	.feedbacks.container{
+	.feedbacks.container {
 		padding: 0 32px;
 	}
-	.feedbacks__inner{
+	.feedbacks__inner {
 		padding: 0 16px;
 	}
-	.feedbacks__title{
+	.feedbacks__title {
 		margin-bottom: 40px;
 	}
-	.feedbacks__items{
+	.feedbacks__items {
 		grid-template-columns: 1fr;
 	}
 	.about__img-desktop {
