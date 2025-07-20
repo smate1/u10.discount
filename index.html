@@ -17,324 +17,316 @@
 
 <body>
   <main class="main">
-    <header class="header" id="header">
-      <div class="container">
-        <div class="header__top">
-          <div class="header__left">
-            <p class="header__discount">UA діскаунт клуб</p>
-            <p class="header__text">Іграшки за діскаунт цінами</p>
+    <div class="top__wrapper">
+      <header class="header" id="header">
+        <div class="container">
+          <div class="header__top">
+            <div class="header__left">
+              <p class="header__discount">UA діскаунт клуб</p>
+              <p class="header__text">Іграшки за діскаунт цінами</p>
+            </div>
+            <a class="header__order header__order-desktop" href="#">
+              <img src="./assets/images/telegram.svg" alt="">
+              <p class="header__text">
+                оформити замовлення без <br> зідзвону в телеграм боті
+              </p>
+            </a>
+            <div class="header__right header__right--desktop">
+              <a class="header__phone" href="+380952231710">
+                +38 (095) 223 - 17 - 10
+              </a>
+              <a class="header__call" href="#">
+                Замовити дзвінок
+              </a>
+            </div>
+            <button class="burger" id="burger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
           </div>
-          <a class="header__order header__order-desktop" href="#">
+          <a class="header__order header__order-mobile" href="#">
             <img src="./assets/images/telegram.svg" alt="">
             <p class="header__text">
               оформити замовлення без <br> зідзвону в телеграм боті
             </p>
           </a>
-          <div class="header__right header__right--desktop">
-            <a class="header__phone" href="+380952231710">
-              +38 (095) 223 - 17 - 10
-            </a>
-            <a class="header__call" href="#">
-              Замовити дзвінок
-            </a>
-          </div>
-          <button class="burger" id="burger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-
-
-        </div>
-        <a class="header__order header__order-mobile" href="#">
-          <img src="./assets/images/telegram.svg" alt="">
-          <p class="header__text">
-            оформити замовлення без <br> зідзвону в телеграм боті
-          </p>
-        </a>
-        <nav class="header__nav" id="navMenu">
-          <ul class="header__list">
-            <li class="header__item"><a class="header__link" href="#header">Головна</a></li>
-            <li class="header__item"><a class="header__link" href="#catalog">Каталог</a></li>
-            <li class="header__item"><a class="header__link" href="#contacts">Контакти</a></li>
-            <li class="header__item"><a class="header__link" href="#about">Про нас</a></li>
-          </ul>
-          <div class="header__right header__right--mobile">
-            <a class="header__phone" href="+380952231710">
-              +38 (095) 223 - 17 - 10
-            </a>
-            <a class="header__call" href="#">
-              Замовити дзвінок
-            </a>
-          </div>
-        </nav>
-        <div id="overlay"></div>
-
-        <div class="header__inner">
-          <div class="header__content">
-            <h1 class="header__title">Знижка до <span>40%</span></h1>
-            <h4 class="header__subtitle header__subtitle-desktop">на водний електробластер</h4>
-            <p class="header__price header__price-desktop">1200₴</p>
-            <div class="header__amount-mobile">
-              <h4 class="header__subtitle header__mobile">на водний <span>1200₴</span> електробластер</h4>
-              
+          <nav class="header__nav" id="navMenu">
+            <ul class="header__list">
+              <li class="header__item"><a class="header__link" href="#header">Головна</a></li>
+              <li class="header__item"><a class="header__link" href="#catalog">Каталог</a></li>
+              <li class="header__item"><a class="header__link" href="#contacts">Контакти</a></li>
+              <li class="header__item"><a class="header__link" href="#about">Про нас</a></li>
+            </ul>
+            <div class="header__right header__right--mobile">
+              <a class="header__phone" href="+380952231710">
+                +38 (095) 223 - 17 - 10
+              </a>
+              <a class="header__call" href="#">
+                Замовити дзвінок
+              </a>
             </div>
-            <div class="header__amount header__desktop">Залишилось <span>50</span> з <span>540</span> штук</div>
-            <button class="header__order-btn header__desktop" id="order">
-              Замовити бластер
-            </button>
-            <div class="header__gift header__desktop">
-              <img class="header__gift-img" src="./assets/images/gift.png" alt="">
-              <p class="header__gift-text">Додатковий магазин в подарунок</p>
-            </div>
-            <div class="header__info-items header__info-items--desktop">
-              <div class="header__info-item">
-                <div class="header__item-inner">
-                  <div class="header__item-info">
-                    Дальність стрільби
-                  </div>
-                  <div class="header__item-num">
-                    10 метрів
-                  </div>
-                </div>
+          </nav>
+          <div id="overlay"></div>
+          <div class="header__inner">
+            <div class="header__content">
+              <h1 class="header__title">Знижка до <span>40%</span></h1>
+              <h4 class="header__subtitle header__subtitle-desktop">на водний електробластер</h4>
+              <p class="header__price header__price-desktop">1200₴</p>
+              <div class="header__amount-mobile">
+                <h4 class="header__subtitle header__mobile">на водний <span>1200₴</span> електробластер</h4>
               </div>
-              <div class="header__info-item">
-                <div class="header__item-inner">
-                  <div class="header__item-info header__item-info--capacity">
-                    великий 500мл та малий 50мл
-                  </div>
-                  <div class="header__item-num">
-                    2 магазини
-                  </div>
-                </div>
-              </div>
-              <div class="header__info-item">
-                <div class="header__item-inner">
-                  <div class="header__item-info">
-                    зарядка
-                  </div>
-                  <div class="header__item-num">
-                    USB
-                  </div>
-                </div>
-              </div>
-              <div class="header__info-item">
-                <div class="header__item-inner">
-                  <div class="header__item-num">
-                    Кнопка швидкого скиду магазина
-                  </div>
-                </div>
-              </div>
-              <div class="header__info-item">
-                <div class="header__item-inner">
-                  <div class="header__item-num">
-                    Рухающийся затвор
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="header__gallery">
-            <!-- Головне медіа -->
-            <!-- Головне медіа -->
-            <div class="header__gallery-main" id="mainMediaContainer">
-              <!-- буде додано скриптом -->
-            </div>
-
-
-            <!-- Прев'ю -->
-            <div class="header__gallery-additional" id="thumbnails">
-              <!-- буде оновлюватись скриптом -->
-            </div>
-
-            <!-- Кольори -->
-            <div class="header__gallery-colors">
-              <img class="color-picker" src="./assets/images/blue.webp" data-color="blue" alt="Blue">
-              <img class="color-picker" src="./assets/images/red.webp" data-color="red" alt="Red">
-              <img class="color-picker" src="./assets/images/black-1.webp" data-color="black" alt="Black">
-            </div>
-          </div>
-        </div>
-        <button class="header__order-btn header__mobile" id="order">
-          Замовити бластер
-        </button>
-        <div class="header__amount header__mobile">Залишилось <span>50</span> з <span>540</span> штук</div>
-        <div class="header__gift header__mobile">
-          <img class="header__gift-img" src="./assets/images/gift.png" alt="">
-          <p class="header__gift-text">Додатковий магазин в подарунок</p>
-        </div>
-        <div class="header__info-items header__info-items--tablet">
-          <div class="header__info-item">
-            <div class="header__item-inner">
-              <div class="header__item-info">
-                Дальність стрільби
-              </div>
-              <div class="header__item-num">
-                10 метрів
-              </div>
-            </div>
-          </div>
-          <div class="header__info-item">
-            <div class="header__item-inner">
-              <div class="header__item-info header__item-info--capacity">
-                великий 500мл та малий 50мл
-              </div>
-              <div class="header__item-num">
-                2 магазини
-              </div>
-            </div>
-          </div>
-          <div class="header__info-item">
-            <div class="header__item-inner">
-              <div class="header__item-info">
-                зарядка
-              </div>
-              <div class="header__item-num">
-                USB
-              </div>
-            </div>
-          </div>
-          <div class="header__info-item">
-            <div class="header__item-inner">
-              <div class="header__item-num">
-                Кнопка швидкого скиду магазина
-              </div>
-            </div>
-          </div>
-          <div class="header__info-item">
-            <div class="header__item-inner">
-              <div class="header__item-num">
-                Рухающийся затвор
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper header__info-items header__info-items--mobile">
-          <div class="swiper-slide header__info-item">
-            <div class="header__item-inner">
-              <div class="header__item-info">
-                Дальність стрільби
-              </div>
-              <div class="header__item-num">
-                10 метрів
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide header__info-item">
-            <div class="header__item-inner">
-              <div class="header__item-info header__item-info--capacity">
-                великий 500мл та малий 50мл
-              </div>
-              <div class="header__item-num">
-                2 магазини
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide header__info-item">
-            <div class="header__item-inner">
-              <div class="header__item-info">
-                зарядка
-              </div>
-              <div class="header__item-num">
-                USB
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide header__info-item">
-            <div class="header__item-inner">
-              <div class="header__item-num">
-                Кнопка швидкого скиду магазина
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide header__info-item">
-            <div class="header__item-inner">
-              <div class="header__item-num">
-                Рухающийся затвор
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-controls">
-          <div class="swiper-button-prev">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"
-              style="transform: rotate(180deg);">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M15.7142 10.14L10.9412 14.913L9.88059 13.8523L12.8434 10.8896L4.75406 10.8896V9.3905L12.8434 9.3905L9.88059 6.42772L10.9412 5.36706L15.7142 10.14Z"
-                fill="white" />
-            </svg>
-          </div>
-          <div class="swiper-button-next">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M15.7142 10.14L10.9412 14.913L9.88059 13.8523L12.8434 10.8896L4.75406 10.8896V9.3905L12.8434 9.3905L9.88059 6.42772L10.9412 5.36706L15.7142 10.14Z"
-                fill="white" />
-            </svg>
-          </div>
-        </div>
-
-      </div>
-
-    </header> <!--
-    <section class="set">
-      <div class="container">
-        <h2 class="set__title title">
-          Комплектація
-        </h2>
-        <div class="set_img">
-          <img src="./assets/images/set.png" alt="">
-
-          <div class="set__item item1">
-            <img class="set__item-img" src="./assets/images/set-1.svg" alt="">
-            <p class="set__item-text">10 метрів</p>
-          </div>
-          <div class="set__item item2">
-            <img class="set__item-img" src="./assets/images/set-2.svg" alt="">
-            <p class="set__item-text">10 метрів</p>
-          </div>
-          <div class="set__item item3">
-            <img class="set__item-img" src="./assets/images/set-3.svg" alt="">
-            <p class="set__item-text">10 метрів</p>
-          </div>
-          <div class="set__item item4">
-            <img class="set__item-img" src="./assets/images/set-4.svg" alt="">
-            <p class="set__item-text">10 метрів</p>
-          </div>
-          <div class="set__item item5">
-            <img class="set__item-img" src="./assets/images/set-5.svg" alt="">
-            <p class="set__item-text">10 метрів</p>
-          </div>
-          <div class="set__item item6">
-            <img class="set__item-img" src="./assets/images/set-6.svg" alt="">
-            <p class="set__item-text">10 метрів</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="order" id="contacts">
-      <div class="container">
-        <div class="order__inner">
-          <form class="order__form order__form--first">
-            <h6 class="order__title">
-              Заповнити форму
-            </h6>
-            <input class="order__input" type="number" placeholder="Ваш номер" required>
-            <div class="order__btn-wrapper">
-              <button class="order__btn" id="order-btn">
+              <div class="header__amount header__desktop">Залишилось <span>50</span> з <span>540</span> штук</div>
+              <button class="header__order-btn header__desktop" id="order">
                 Замовити бластер
               </button>
+              <div class="header__gift header__desktop">
+                <img class="header__gift-img" src="./assets/images/gift.png" alt="">
+                <p class="header__gift-text">Додатковий магазин в подарунок</p>
+              </div>
+              <div class="header__info-items header__info-items--desktop">
+                <div class="header__info-item">
+                  <div class="header__item-inner">
+                    <div class="header__item-info">
+                      Дальність стрільби
+                    </div>
+                    <div class="header__item-num">
+                      10 метрів
+                    </div>
+                  </div>
+                </div>
+                <div class="header__info-item">
+                  <div class="header__item-inner">
+                    <div class="header__item-info header__item-info--capacity">
+                      великий 500мл та малий 50мл
+                    </div>
+                    <div class="header__item-num">
+                      2 магазини
+                    </div>
+                  </div>
+                </div>
+                <div class="header__info-item">
+                  <div class="header__item-inner">
+                    <div class="header__item-info">
+                      зарядка
+                    </div>
+                    <div class="header__item-num">
+                      USB
+                    </div>
+                  </div>
+                </div>
+                <div class="header__info-item">
+                  <div class="header__item-inner">
+                    <div class="header__item-num">
+                      Кнопка швидкого скиду магазина
+                    </div>
+                  </div>
+                </div>
+                <div class="header__info-item">
+                  <div class="header__item-inner">
+                    <div class="header__item-num">
+                      Рухающийся затвор
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </form>
-          <a class="order__link order__link-first" href="#">
-            <img class="order__link-img" src="./assets/images/telegram.svg" alt="">
-            <p class="order__link-text">
-              замовити та оплатити через ТГ бот
-            </p>
-          </a>
+            <div class="header__gallery">
+              <!-- Головне медіа -->
+              <!-- Головне медіа -->
+              <div class="header__gallery-main" id="mainMediaContainer">
+                <!-- буде додано скриптом -->
+              </div>
+              <!-- Прев'ю -->
+              <div class="header__gallery-additional" id="thumbnails">
+                <!-- буде оновлюватись скриптом -->
+              </div>
+              <!-- Кольори -->
+              <div class="header__gallery-colors">
+                <img class="color-picker" src="./assets/images/blue.webp" data-color="blue" alt="Blue">
+                <img class="color-picker" src="./assets/images/red.webp" data-color="red" alt="Red">
+                <img class="color-picker" src="./assets/images/black-1.webp" data-color="black" alt="Black">
+              </div>
+            </div>
+          </div>
+          <button class="header__order-btn header__mobile" id="order">
+            Замовити бластер
+          </button>
+          <div class="header__amount header__mobile">Залишилось <span>50</span> з <span>540</span> штук</div>
+          <div class="header__gift header__mobile">
+            <img class="header__gift-img" src="./assets/images/gift.png" alt="">
+            <p class="header__gift-text">Додатковий магазин в подарунок</p>
+          </div>
+          <div class="header__info-items header__info-items--tablet">
+            <div class="header__info-item">
+              <div class="header__item-inner">
+                <div class="header__item-info">
+                  Дальність стрільби
+                </div>
+                <div class="header__item-num">
+                  10 метрів
+                </div>
+              </div>
+            </div>
+            <div class="header__info-item">
+              <div class="header__item-inner">
+                <div class="header__item-info header__item-info--capacity">
+                  великий 500мл та малий 50мл
+                </div>
+                <div class="header__item-num">
+                  2 магазини
+                </div>
+              </div>
+            </div>
+            <div class="header__info-item">
+              <div class="header__item-inner">
+                <div class="header__item-info">
+                  зарядка
+                </div>
+                <div class="header__item-num">
+                  USB
+                </div>
+              </div>
+            </div>
+            <div class="header__info-item">
+              <div class="header__item-inner">
+                <div class="header__item-num">
+                  Кнопка швидкого скиду магазина
+                </div>
+              </div>
+            </div>
+            <div class="header__info-item">
+              <div class="header__item-inner">
+                <div class="header__item-num">
+                  Рухающийся затвор
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper header__info-items header__info-items--mobile">
+            <div class="swiper-slide header__info-item">
+              <div class="header__item-inner">
+                <div class="header__item-info">
+                  Дальність стрільби
+                </div>
+                <div class="header__item-num">
+                  10 метрів
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide header__info-item">
+              <div class="header__item-inner">
+                <div class="header__item-info header__item-info--capacity">
+                  великий 500мл та малий 50мл
+                </div>
+                <div class="header__item-num">
+                  2 магазини
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide header__info-item">
+              <div class="header__item-inner">
+                <div class="header__item-info">
+                  зарядка
+                </div>
+                <div class="header__item-num">
+                  USB
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide header__info-item">
+              <div class="header__item-inner">
+                <div class="header__item-num">
+                  Кнопка швидкого скиду магазина
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide header__info-item">
+              <div class="header__item-inner">
+                <div class="header__item-num">
+                  Рухающийся затвор
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-controls">
+            <div class="swiper-button-prev">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                style="transform: rotate(180deg);">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M15.7142 10.14L10.9412 14.913L9.88059 13.8523L12.8434 10.8896L4.75406 10.8896V9.3905L12.8434 9.3905L9.88059 6.42772L10.9412 5.36706L15.7142 10.14Z"
+                  fill="white" />
+              </svg>
+            </div>
+            <div class="swiper-button-next">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M15.7142 10.14L10.9412 14.913L9.88059 13.8523L12.8434 10.8896L4.75406 10.8896V9.3905L12.8434 9.3905L9.88059 6.42772L10.9412 5.36706L15.7142 10.14Z"
+                  fill="white" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section class="set">
+        <div class="container">
+          <h2 class="set__title title">
+            Комплектація
+          </h2>
+          <div class="set__img">
+            <img class="set__main-img" src="./assets/images/set.png" alt="">
+            <div class="set__item item1">
+              <img class="set__item-img" src="./assets/images/set-1.svg" alt="">
+              <p class="set__item-text">10 метрів</p>
+            </div>
+            <div class="set__item item2">
+              <img class="set__item-img" src="./assets/images/set-2.svg" alt="">
+              <p class="set__item-text">10 метрів</p>
+            </div>
+            <div class="set__item item3">
+              <img class="set__item-img" src="./assets/images/set-3.svg" alt="">
+              <p class="set__item-text">10 метрів</p>
+            </div>
+            <div class="set__item item4">
+              <img class="set__item-img" src="./assets/images/set-4.svg" alt="">
+              <p class="set__item-text">10 метрів</p>
+            </div>
+            <div class="set__item item5">
+              <img class="set__item-img" src="./assets/images/set-5.svg" alt="">
+              <p class="set__item-text">10 метрів</p>
+            </div>
+            <div class="set__item item6">
+              <img class="set__item-img" src="./assets/images/set-6.svg" alt="">
+              <p class="set__item-text">10 метрів</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="order" id="contacts">
+        <div class="container">
+          <div class="order__inner">
+            <form class="order__form order__form--first">
+              <h6 class="order__title">
+                Заповнити форму
+              </h6>
+              <input class="order__input" type="number" placeholder="Ваш номер" required>
+              <div class="order__btn-wrapper">
+                <button class="order__btn" id="order-btn">
+                  Замовити бластер
+                </button>
+              </div>
+            </form>
+            <a class="order__link order__link-first" href="#">
+              <img class="order__link-img" src="./assets/images/telegram.svg" alt="">
+              <p class="order__link-text">
+                замовити та оплатити через ТГ бот
+              </p>
+            </a>
+          </div>
+        </div>
+      </div> 
     </div>
     <section class="benefits">
       <div class="block-container">
@@ -410,7 +402,7 @@
 
         </div>
       </div>
-    </section>
+    </section> 
     <section class="choice" id="catalog">
       <div class="container">
         <h2 class="choice__title title">
@@ -483,9 +475,31 @@
               Замовити
             </button>
           </div>
+          <div class="choice__item choice__item-mobile">
+            <div class="choice__img-wrapper">
+              <label>
+                <input class="heart__input" type="checkbox" class="likeToggle" />
+                <svg class="heart" xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 24">
+                  <path class="heart-shape heart-outline" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                       2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09 
+                       C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 
+                       22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#FF487E" stroke="#FF487E"
+                    stroke-width="1.3" />
+                </svg>
+              </label>
+              <img class="choice__item-img" src="./assets/images/choice-double.png" alt="">
+            </div>
+            <p class="choice__item-text">
+              Водяной пистолет Weal Maker электрический
+              с затвором, 2 обоймы, зарядка от USB
+            </p>
+            <button class="choice__item-btn">
+              Замовити
+            </button>
+          </div>
         </div>
       </div>
-    </section>
+    </section> 
     <section class="about" id="about">
       <div class="container">
         <div class="about__inner">
@@ -503,7 +517,7 @@
                 Наші товари можна зустріти в таких мережах як:
               </p>
             </div>
-            <img class="about__img" src="./assets/images/about-1.png" alt="">
+            <img class="about__img about__img-first about__img-desktop" src="./assets/images/about-1.png" alt="">
           </div>
           <div class="about__content about__content--second">
             <div class="about__left about__left--second">
@@ -520,11 +534,13 @@
                 Відгуки про роботу з нами ви можете погортати нижче, а також подивитись в обличчя команді :)
               </p>
             </div>
-            <img class="about__img" src="./assets/images/about-2.png" alt="">
+            <img class="about__img about__img-second about__img-desktop" src="./assets/images/about-2.png" alt="">
           </div>
+          <img class="about__img about__img-first about__img-mobile" src="./assets/images/about-1.png" alt="">
+          <div class="about__img-wrapper"><img class="about__img about__img-second about__img-mobile" src="./assets/images/about-2.png" alt=""></div>
         </div>
       </div>
-    </section>
+    </section> 
     <div class="order">
       <div class="container">
         <div class="order__inner order__inner--second">
@@ -547,7 +563,7 @@
           </a>
         </div>
       </div>
-    </div>
+    </div> 
     <section class="feedbacks">
       <div class="block-container">
         <div class="feedbacks__inner">
@@ -640,7 +656,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> 
     <footer class="footer">
       <div class="container">
         <div class="footer__inner">
@@ -653,8 +669,16 @@
                 оформити замовлення без зідзвону в телеграм боті
               </p>
             </a>
+            <div class="footer__middle footer__middle-mobile">
+              <a class="footer__phone" href="+380952231710">
+                +38 (095) 223 - 17 - 10
+              </a>
+              <a class="footer__call" href="#">
+                Замовити дзвінок
+              </a>
+            </div>
           </div>
-          <div class="footer__middle">
+          <div class="footer__middle footer__middle-desktop">
             <a class="footer__phone" href="+380952231710">
               +38 (095) 223 - 17 - 10
             </a>
@@ -689,7 +713,7 @@
           </form>
         </div>
       </div>
-    </footer> -->
+    </footer> 
 
 
 
