@@ -65,20 +65,43 @@ function updateMain(type, src) {
 
 document.querySelectorAll('#order-btn').forEach(btn => {
 	btn.addEventListener('click', function (e) {
-		e.preventDefault() // Щоб форма не сабмітилась
+		e.preventDefault()
+
+		// Знаходимо інпут з номером у цій же формі
+		const form = btn.closest('form')
+		const input = form.querySelector('.phone-mask')
+		const phoneValue = input?.value.trim()
+
+		// Перевірка, чи заповнено номер
+		if (!phoneValue || phoneValue.length < 10) {
+			alert('Будь ласка, введіть свій номер телефону')
+			input?.focus()
+			return
+		}
+
+		// Вставити номер у попап
+		const popupPhoneInput = document.getElementById('phoneInput')
+		if (popupPhoneInput) {
+			popupPhoneInput.value = phoneValue
+		}
+
+		// Відкриваємо попап
 		document.getElementById('orderPopup').classList.add('active')
 	})
 })
 
+// Закриття попапу по кнопці
 document.getElementById('popupClose').addEventListener('click', function () {
 	document.getElementById('orderPopup').classList.remove('active')
 })
 
+// Закриття попапу по Escape
 document.addEventListener('keydown', function (e) {
 	if (e.key === 'Escape') {
 		document.getElementById('orderPopup').classList.remove('active')
 	}
 })
+
 
 
 function updateThumbnails(color) {

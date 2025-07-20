@@ -77,7 +77,7 @@
                 <h4 class="header__subtitle header__mobile">на водний <span>1200₴</span> електробластер</h4>
               </div>
               <div class="header__amount header__desktop">Залишилось <span>50</span> з <span>540</span> штук</div>
-              <button class="header__order-btn header__desktop" id="order-btn">
+              <button class="header__order-btn header__desktop order-btn" id="order-btn">
                 Замовити бластер
               </button>
               <div class="header__gift header__desktop">
@@ -149,7 +149,7 @@
               </div>
             </div>
           </div>
-          <button class="header__order-btn header__mobile" id="order-btn">
+          <button class="header__order-btn header__mobile order-btn" id="order-btn">
             Замовити бластер
           </button>
           <div class="header__amount header__mobile">Залишилось <span>50</span> з <span>540</span> штук</div>
@@ -273,7 +273,6 @@
       <div class="order-popup" id="orderPopup">
         <div class="order-popup__content">
           <button class="order-popup__close" id="popupClose">&times;</button>
-
           <div class="order__top">
             <p class="order-popup__desc">
               Водяной пистолет <b>Weal Maker</b> електричний с затвором, 2 обоймы, зарядка от USB
@@ -286,33 +285,64 @@
           <div class="order-popup__gallery">
             <img src="./assets/images/bluster-2.jpg" class="order-popup__main-img" alt="">
             <div class="order-popup__colors">
-              <img class="color-picker" src="./assets/images/blue.webp" data-color="blue" alt="Blue">
-              <img class="color-picker" src="./assets/images/red.webp" data-color="red" alt="Red">
-              <img class="color-picker" src="./assets/images/black-1.webp" data-color="black" alt="Black">
+              <img class="color-picker" src="./assets/images/blue.webp" data-color="blue"
+                data-img="./assets/images/blue.webp" alt="Blue">
+              <img class="color-picker" src="./assets/images/red.webp" data-color="red"
+                data-img="./assets/images/red.webp" alt="Red">
+              <img class="color-picker" src="./assets/images/black-1.webp" data-color="black"
+                data-img="./assets/images/black-1.webp" alt="Black">
             </div>
           </div>
-
-
-
           <form class="order-popup__form">
+            <p class="order-popup__form--text">Ваш номер</p>
             <div class="order-popup__input-wrapper">
-              <select>
-                <option value="UA">UA</option>
-              </select>
-              <input type="tel" placeholder="098-000-00-00" required>
+              <div class="phone-input-container">
+                <div class="country-select">
+                  <select id="countrySelect">
+                    <option value="+380">UA</option>
+                    <option value="+1">US</option>
+                    <option value="+44">UK</option>
+                    <option value="+49">DE</option>
+                    <option value="+33">FR</option>
+                    <!-- інші країни -->
+                  </select>
+                </div>
+                <input class="order-popup__input phone-mask" id="phoneInput" type="tel" placeholder="098-000-00-00" required>
+                <div class="input-error-message" style="display: none;"></div>
+
+              </div>
+              <button class="order-popup__submit">Замовити бластер</button>
             </div>
 
+
+
             <label class="order-popup__checkbox">
-              <input type="checkbox">
-              не телефонувати
+              <input type="checkbox" hidden id="noCallCheckbox">
+              <span class="checkbox-icon">
+                <svg class="checkbox-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                  fill="none">
+                  <rect x="1" y="1" width="18" height="18" rx="4" fill="none" stroke="black" stroke-width="2" />
+                  <path class="checkmark" d="M6 10.8L8.57143 14L15 6" stroke="white" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+              <p>не телефонувати</p>
             </label>
 
-            <p class="order-popup__note">
-              Якщо не хочете щоб ми підтверджували замовлення по телефону – можете оформити замовлення в Телеграм боті
-              натиснувши 'Купити'.
-            </p>
+            <div class="order-popup__note">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                <path d="M7.25 10.375V6.625" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
+                <circle cx="0.625" cy="0.625" r="0.625" transform="matrix(1 0 0 -1 6.625 5.375)" fill="#1C274C" />
+                <path
+                  d="M13.5 7.25C13.5 10.1963 13.5 11.6694 12.5847 12.5847C11.6694 13.5 10.1963 13.5 7.25 13.5C4.30372 13.5 2.83058 13.5 1.91529 12.5847C1 11.6694 1 10.1963 1 7.25C1 4.30372 1 2.83058 1.91529 1.91529C2.83058 1 4.30372 1 7.25 1C10.1963 1 11.6694 1 12.5847 1.91529C13.1933 2.52388 13.3972 3.37909 13.4656 4.75"
+                  stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+              <p class="order-popup__note--text">
+                Якщо не хочете щоб ми підтверджували замовлення по телефону – можете оформити замовлення в Телеграм боті
+                натиснувши 'Купити'.
+              </p>
+            </div>
 
-            <button class="order-popup__submit">Замовити бластер</button>
           </form>
         </div>
       </div>
@@ -356,10 +386,12 @@
         <div class="container">
           <div class="order__inner">
             <form class="order__form order__form--first">
+              <div class="input-error-message" style="display: none;"></div>
+
               <h6 class="order__title">
                 Заповнити форму
               </h6>
-              <input class="order__input" type="number" placeholder="Ваш номер" required>
+              <input class="order__input phone-mask" type="tel"placeholder="Ваш номер" required>
               <div class="order__btn-wrapper">
                 <button class="order__btn" id="order-btn">
                   Замовити бластер
@@ -474,7 +506,7 @@
               Водяной пистолет Weal Maker электрический
               с затвором, 2 обоймы, зарядка от USB
             </p>
-            <button class="choice__item-btn" id="order-btn">
+            <button class="choice__item-btn order-btn" id="order-btn">
               Замовити
             </button>
           </div>
@@ -497,7 +529,7 @@
               Водяной пистолет Weal Maker электрический
               с затвором, 2 обоймы, зарядка от USB
             </p>
-            <button class="choice__item-btn" id="order-btn">
+            <button class="choice__item-btn order-btn" id="order-btn">
               Замовити
             </button>
           </div>
@@ -519,7 +551,7 @@
               Водяной пистолет Weal Maker электрический
               с затвором, 2 обоймы, зарядка от USB
             </p>
-            <button class="choice__item-btn" id="order-btn">
+            <button class="choice__item-btn order-btn" id="order-btn">
               Замовити
             </button>
           </div>
@@ -541,7 +573,7 @@
               Водяной пистолет Weal Maker электрический
               с затвором, 2 обоймы, зарядка от USB
             </p>
-            <button class="choice__item-btn">
+            <button class="choice__item-btn order-btn" id="order-btn">
               Замовити
             </button>
           </div>
@@ -597,7 +629,7 @@
             <h6 class="order__title">
               Заповнити форму
             </h6>
-            <input class="order__input" type="number" placeholder="Ваш номер" required>
+            <input class="order__input phone-mask" type="tel" placeholder="Ваш номер" required>
             <div class="order__btn-wrapper">
               <button class="order__btn" id="order-btn">
                 Замовити бластер
@@ -768,6 +800,75 @@
 
 
 
+<script>
+  document.querySelectorAll('.phone-mask').forEach(input => {
+    input.addEventListener('input', function () {
+      let value = input.value.replace(/\D/g, '');
+      if (value.length > 10) value = value.slice(0, 10);
+
+      const parts = [
+        value.slice(0, 3),
+        value.slice(3, 6),
+        value.slice(6, 8),
+        value.slice(8, 10)
+      ].filter(Boolean);
+
+      input.value = parts.join('-');
+    });
+  });
+</script>
+
+
+
+
+
+
+    <script>
+      document.querySelector('.order-popup__form').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const countryCode = document.getElementById('countrySelect').value; // <--- Додано
+        const phone = document.getElementById('phoneInput').value.trim();
+        const fullPhone = `${countryCode} ${phone}`; // <--- Формуємо повний номер
+
+        const noCall = document.getElementById('noCallCheckbox').checked;
+        const selectedColor = document.querySelector('.color-picker.selected')?.dataset.color || 'не вибрано';
+        const productName = "Водяний пістолет Weal Maker";
+        const price = "1099₴";
+
+        const message = `
+🛒 НОВЕ ЗАМОВЛЕННЯ
+
+📦 Товар: ${productName}
+🎨 Колір: ${selectedColor}
+💰 Ціна: ${price}
+📞 Телефон: ${fullPhone}
+📵 Не дзвонити: ${noCall ? "✅" : "❌"}
+  `;
+
+        const token = "7778812492:AAHYUPIK9mvPmaWwxnScL9IrrrnUlaUYJXQ";
+        const chatId = "-4962267225";
+        const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+        try {
+          const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: chatId, text: message })
+          });
+
+          if (res.ok) {
+            window.location.href = "/thank-you.html";
+          } else {
+            alert("❌ Помилка при надсиланні. Спробуйте пізніше.");
+          }
+        } catch (error) {
+          console.error("Помилка:", error);
+          alert("❌ Не вдалося надіслати замовлення.");
+        }
+      });
+
+    </script>
 
 
 
@@ -776,9 +877,25 @@
 
 
 
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const mainImage = document.querySelector('.order-popup__main-img');
+        const colorPickers = document.querySelectorAll('.color-picker');
 
+        colorPickers.forEach(picker => {
+          picker.addEventListener('click', () => {
+            const newImage = picker.getAttribute('data-img');
+            if (newImage) {
+              mainImage.src = newImage;
 
-
+              // Optional: highlight active thumbnail
+              colorPickers.forEach(p => p.classList.remove('active'));
+              picker.classList.add('active');
+            }
+          });
+        });
+      });
+    </script>
 
 
 

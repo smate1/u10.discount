@@ -18,6 +18,17 @@ time, mark, audio, video {
     vertical-align:baseline;
     background:transparent;
 }
+/* Для Chrome, Safari, Edge */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Для Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 
 body {
     line-height:1;
