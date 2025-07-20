@@ -10,6 +10,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
@@ -72,13 +73,17 @@
         <div class="header__inner">
           <div class="header__content">
             <h1 class="header__title">Знижка до <span>40%</span></h1>
-            <h4 class="header__subtitle">на водний електробластер</h4>
-            <p class="header__price">1200₴</p>
-            <div class="header__amount">Залишилось <span>50</span> з <span>540</span> штук</div>
-            <button class="header__order-btn" id="order">
+            <h4 class="header__subtitle header__subtitle-desktop">на водний електробластер</h4>
+            <p class="header__price header__price-desktop">1200₴</p>
+            <div class="header__amount-mobile">
+              <h4 class="header__subtitle header__mobile">на водний <span>1200₴</span> електробластер</h4>
+              
+            </div>
+            <div class="header__amount header__desktop">Залишилось <span>50</span> з <span>540</span> штук</div>
+            <button class="header__order-btn header__desktop" id="order">
               Замовити бластер
             </button>
-            <div class="header__gift">
+            <div class="header__gift header__desktop">
               <img class="header__gift-img" src="./assets/images/gift.png" alt="">
               <p class="header__gift-text">Додатковий магазин в подарунок</p>
             </div>
@@ -150,7 +155,15 @@
             </div>
           </div>
         </div>
-        <div class="header__info-items header__info-items--mobile">
+        <button class="header__order-btn header__mobile" id="order">
+          Замовити бластер
+        </button>
+        <div class="header__amount header__mobile">Залишилось <span>50</span> з <span>540</span> штук</div>
+        <div class="header__gift header__mobile">
+          <img class="header__gift-img" src="./assets/images/gift.png" alt="">
+          <p class="header__gift-text">Додатковий магазин в подарунок</p>
+        </div>
+        <div class="header__info-items header__info-items--tablet">
           <div class="header__info-item">
             <div class="header__item-inner">
               <div class="header__item-info">
@@ -197,7 +210,74 @@
           </div>
         </div>
       </div>
-    </header>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper header__info-items header__info-items--mobile">
+          <div class="swiper-slide header__info-item">
+            <div class="header__item-inner">
+              <div class="header__item-info">
+                Дальність стрільби
+              </div>
+              <div class="header__item-num">
+                10 метрів
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide header__info-item">
+            <div class="header__item-inner">
+              <div class="header__item-info header__item-info--capacity">
+                великий 500мл та малий 50мл
+              </div>
+              <div class="header__item-num">
+                2 магазини
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide header__info-item">
+            <div class="header__item-inner">
+              <div class="header__item-info">
+                зарядка
+              </div>
+              <div class="header__item-num">
+                USB
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide header__info-item">
+            <div class="header__item-inner">
+              <div class="header__item-num">
+                Кнопка швидкого скиду магазина
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide header__info-item">
+            <div class="header__item-inner">
+              <div class="header__item-num">
+                Рухающийся затвор
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-controls">
+          <div class="swiper-button-prev">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"
+              style="transform: rotate(180deg);">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M15.7142 10.14L10.9412 14.913L9.88059 13.8523L12.8434 10.8896L4.75406 10.8896V9.3905L12.8434 9.3905L9.88059 6.42772L10.9412 5.36706L15.7142 10.14Z"
+                fill="white" />
+            </svg>
+          </div>
+          <div class="swiper-button-next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M15.7142 10.14L10.9412 14.913L9.88059 13.8523L12.8434 10.8896L4.75406 10.8896V9.3905L12.8434 9.3905L9.88059 6.42772L10.9412 5.36706L15.7142 10.14Z"
+                fill="white" />
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+    </header> <!--
     <section class="set">
       <div class="container">
         <h2 class="set__title title">
@@ -633,6 +713,21 @@
 
 
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      const swiper = new Swiper(".mySwiper", {
+        slidesPerView: "auto",
+        spaceBetween: 16,
+        centeredSlides: false,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+    </script>
 
 
 
