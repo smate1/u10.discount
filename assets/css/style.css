@@ -721,7 +721,7 @@ background: #FFF;
 }
 .order__inner--second {
 	position: relative;
-	background-image: url('../images/order-bg-second.svg');
+	background-image: url('../images/order-bg-second.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	border-radius: 15px;
@@ -1346,7 +1346,7 @@ background: #FFF;
 		top: 70% !important;
 	}
 	.order__link-second {
-		top: 10%;
+		top: 35%;
 		max-height: 65px;
 		width: 390px;
 		left: 50% !important;
