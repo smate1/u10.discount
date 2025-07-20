@@ -1,9 +1,9 @@
 const galleries = {
 	blue: [
-		{ type: 'image', src: './assets/images/bluster-2.jpg' },
-		{ type: 'image', src: './assets/images/bluster-3.jpg' },
-		{ type: 'image', src: './assets/images/bluster-4.jpg' },
-		{ type: 'image', src: './assets/images/bluster-5.jpg' },
+		{ type: 'image', src: './assets/images/bluster-2.avif' },
+		{ type: 'image', src: './assets/images/bluster-3.avif' },
+		{ type: 'image', src: './assets/images/bluster-4.avif' },
+		{ type: 'image', src: './assets/images/bluster-5.avif' },
 		{ type: 'video', src: './assets/video/blaster.mp4' },
 	],
 	red: [{ type: 'image', src: './assets/images/red.webp' }],
@@ -121,7 +121,7 @@ function updateThumbnails(color) {
 			thumb.muted = true
 			thumb.loop = true
 			thumb.playsInline = true
-			thumb.poster = item.src.replace('.mp4', '-preview.png')
+			thumb.poster = item.src.replace('.mp4', '-preview.avif')
 		}
 
 		thumb.onclick = () => updateMain(item.type, item.src)

@@ -835,7 +835,7 @@ body {
 }
 .order__inner {
 	position: relative;
-	background-image: url('../images/order-bg.png');
+	background-image: url('../images/order-bg.avif');
 	background-repeat: no-repeat;
 	background-size: cover;
 	border-radius: 15px;
@@ -845,7 +845,7 @@ body {
 }
 .order__inner--second {
 	position: relative;
-	background-image: url('../images/order-bg-second.png');
+	background-image: url('../images/order-bg-second.avif');
 	background-repeat: no-repeat;
 	background-size: cover;
 	border-radius: 15px;
@@ -1483,7 +1483,7 @@ body {
 		display: block;
 	}
 	.order__inner--second {
-		background-image: url('../images/order-mobile-second-bg.png') !important;
+		background-image: url('../images/order-mobile-second-bg.avif') !important;
 	}
 	.about__logos {
 		gap: 20px;
@@ -1535,7 +1535,7 @@ body {
 	}
 	.order__inner {
 		height: 670px;
-		background-image: url('../images/order-mobile-bg.png');
+		background-image: url('../images/order-mobile-bg.avif');
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: top center;
