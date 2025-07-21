@@ -4,9 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="theme-color" content="#7B61FF">
   <title>u10.discount</title>
   <script>
     !function (f, b, e, v, n, t, s) {
@@ -23,131 +20,16 @@
     fbq('init', '1770163227238882');
     fbq('track', 'PageView');
   </script>
-  <!-- DNS prefetch для зовнішніх ресурсів -->
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-  <link rel="dns-prefetch" href="https://api.telegram.org">
-
-  <!-- Preconnect для критичних ресурсів -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Meta Pixel Code -->
 
-  <!-- Критичні стилі інлайн для швидшого відображення -->
-  <style>
-    *,
-    html {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      color: #202020;
-      font-size: 16px;
-      background-color: #fefefe;
-      overflow-x: hidden;
-      line-height: 1.4
-    }
-
-    .no-scroll {
-      overflow: hidden;
-      height: 100vh
-    }
-
-    .container {
-      max-width: 1270px;
-      margin: 0 auto;
-      padding: 0 10px
-    }
-
-    .header {
-      color: #fff;
-      padding-bottom: 250px
-    }
-
-    .main {
-      position: relative;
-      background-color: #f8f9fa
-    }
-
-    .title {
-      color: #111827;
-      text-align: center;
-      font-size: 40px;
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.9px
-    }
-
-    button {
-      border: none;
-      background: none;
-      cursor: pointer;
-      outline: none
-    }
-
-    input {
-      border: none;
-      outline: none
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit
-    }
-
-    .header__top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 0
-    }
-
-    .header__title {
-      font-size: clamp(32px, 5vw, 60px);
-      font-weight: 700;
-      margin: 20px 0
-    }
-
-    .header__order-btn {
-      background: #7B61FF;
-      color: #fff;
-      padding: 16px 32px;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: transform 0.2s
-    }
-
-    .header__order-btn:hover {
-      transform: translateY(-2px)
-    }
-  </style>
-
-  <!-- Preload критичних ресурсів -->
-  <link rel="preload" href="./js/main.js" as="script">
-
-  <!-- Асинхронне завантаження шрифтів -->
-  <link rel="preload"
-    href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
-    as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap">
-  </noscript>
-
-  <!-- Відкладене завантаження Swiper CSS -->
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style"
-    onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  </noscript>
-
-  <!-- Асинхронне завантаження основних стилів -->
-  <link rel="preload" href="./assets/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="./assets/css/style.css">
-  </noscript>
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 
@@ -1025,66 +907,54 @@
       });
     </script>
 
-    <!-- Асинхронне завантаження Swiper JS тільки якщо є слайдер -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
     <script>
-      // Завантажуємо Swiper тільки якщо є слайдер на сторінці
-      if (document.querySelector('.mySwiper')) {
-        const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
-        script.async = true;
-        script.onload = function () {
-          // Ініціалізація Swiper після завантаження
-          initSwiper();
-        };
-        document.head.appendChild(script);
-      }
-
-      function initSwiper() {
-        const swiper = new Swiper(".mySwiper", {
-          slidesPerView: "auto",
-          spaceBetween: 16,
-          centeredSlides: true,
-          freeMode: {
-            enabled: true,
-            sticky: false,
+      const swiper = new Swiper(".mySwiper", {
+        slidesPerView: "auto",
+        spaceBetween: 16,
+        centeredSlides: true,
+        freeMode: {
+          enabled: true,
+          sticky: false,
+        },
+        watchSlidesProgress: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        // Обмеження скролінга на краях
+        resistanceRatio: 0,
+        watchOverflow: true,
+        // Подія для контролю меж скролінга
+        on: {
+          reachEnd: function () {
+            this.allowSlideNext = false;
           },
-          watchSlidesProgress: true,
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+          reachBeginning: function () {
+            this.allowSlidePrev = false;
           },
-          // Обмеження скролінга на краях
-          resistanceRatio: 0,
-          watchOverflow: true,
-          // Подія для контролю меж скролінга
-          on: {
-            reachEnd: function () {
+          fromEdge: function () {
+            this.allowSlideNext = true;
+            this.allowSlidePrev = true;
+          },
+          slideChange: function () {
+            // Перевіряємо чи досягли кінця/початку
+            if (this.isEnd) {
               this.allowSlideNext = false;
-            },
-            reachBeginning: function () {
-              this.allowSlidePrev = false;
-            },
-            fromEdge: function () {
+            } else {
               this.allowSlideNext = true;
-              this.allowSlidePrev = true;
-            },
-            slideChange: function () {
-              // Перевіряємо чи досягли кінця/початку
-              if (this.isEnd) {
-                this.allowSlideNext = false;
-              } else {
-                this.allowSlideNext = true;
-              }
+            }
 
-              if (this.isBeginning) {
-                this.allowSlidePrev = false;
-              } else {
-                this.allowSlidePrev = true;
-              }
+            if (this.isBeginning) {
+              this.allowSlidePrev = false;
+            } else {
+              this.allowSlidePrev = true;
             }
           }
-        });
-      }
+        }
+      });
+
     </script>
 
     <script>
@@ -1155,22 +1025,7 @@
     </button>
 
   </main>
-  <script src="./js/main.js" defer></script>
-
-  <!-- Service Worker для кешування ресурсів -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/sw.js')
-          .then(function (registration) {
-            console.log('SW зареєстровано: ', registration.scope);
-          })
-          .catch(function (registrationError) {
-            console.log('Помилка реєстрації SW: ', registrationError);
-          });
-      });
-    }
-  </script>
+  <script src="./js/main.js"></script>
 </body>
 
 </html>
