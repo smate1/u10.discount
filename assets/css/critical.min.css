@@ -1,0 +1,35 @@
+/* Критичні мінімізовані стилі */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+*,html{box-sizing:border-box}
+body{font-family:'Barlow',sans-serif;color:#202020;font-size:16px;font-weight:400;background-color:#fefefe;overflow-x:hidden;line-height:1}
+input[type="number"]::-webkit-outer-spin-button,input[type="number"]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+input[type="number"]{-moz-appearance:textfield}
+.no-scroll{overflow:hidden;height:100vh}
+a{text-decoration:none;color:inherit;transition:none;outline:none;background:transparent}
+input{outline:none;border:none}
+button{outline:none;border:none;background:none;cursor:pointer}
+select{outline:none;border:none}
+li{list-style:none;color:inherit}
+*{-webkit-tap-highlight-color:transparent}
+*:focus{outline:none}
+.main{position:relative;background-image:url('../images/main-bg.svg');background-position:top center;background-repeat:no-repeat;background-size:100% auto}
+.container{max-width:1270px;margin:0 auto;padding:0 10px}
+.header{color:#fff;padding-bottom:250px}
+.title{color:#111827;font-family:'Barlow',sans-serif;text-align:center;font-size:40px;font-style:normal;font-weight:700;line-height:120%;letter-spacing:-0.9px}
+.block-container{max-width:1440px;margin:0 auto;padding:0 85px}
+.benefits{padding:120px 0}
+.benefits__inner{display:flex;align-items:flex-start;gap:120px}
+.benefits__content{flex:1;max-width:500px}
+.benefits__subtitle{color:#7B61FF;font-family:'Barlow',sans-serif;font-size:18px;font-weight:500;line-height:120%;margin-bottom:16px}
+.benefits__title{margin-bottom:40px;text-align:left}
+.benefits__items{display:flex;flex-direction:column;gap:32px}
+.benefits__item{border-radius:16px;background:#fff;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
+.benefits__item-title{color:#111827;font-family:'Barlow',sans-serif;font-size:20px;font-weight:600;line-height:120%;margin-bottom:12px}
+.benefits__item-text{color:#6B7280;font-family:'Barlow',sans-serif;font-size:16px;font-weight:400;line-height:150%}
+.benefits__photos{flex:1;display:flex;flex-direction:column;gap:24px}
+.benefits__photo{border-radius:20px;overflow:hidden;position:relative}
+.benefits__photo.big{height:400px}
+.benefits__photo.small{height:188px}
+.benefits__photo img{width:100%;height:100%;object-fit:cover}
+.benefits__photos-row{display:flex;gap:24px}
+.benefits__photos-row .benefits__photo{flex:1}
