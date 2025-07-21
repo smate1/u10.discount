@@ -1,26 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-	document
-		.querySelector('.order-popup__form')
-		.addEventListener('submit', async function (e) {
-			e.preventDefault()
-
-			// ... твій код
-			const res = await fetch('../order.php', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({
-					productName,
-					selectedColor,
-					price,
-					fullPhone,
-					noCall,
-				}),
-			})
-
-			// ...
-		})
-})
-
 // Данные о остатках товара для каждого цвета
 const productStock = {
 	blue: {
@@ -172,44 +149,60 @@ const galleries = {
 		{
 			type: 'image',
 			src: './assets/images/bluster-2.avif',
+			sizes: '(max-width: 768px) 100vw, 50vw',
 			alt: 'Blue bluster 2',
 		},
 		{
 			type: 'image',
 			src: './assets/images/bluster-3.avif',
+			sizes: '(max-width: 768px) 100vw, 50vw',
 			alt: 'Blue bluster 3',
 		},
 		{
 			type: 'image',
 			src: './assets/images/bluster-4.avif',
+
+			sizes: '(max-width: 768px) 100vw, 50vw',
 			alt: 'Blue bluster 4',
 		},
 		{
 			type: 'image',
 			src: './assets/images/bluster-5.avif',
+			sizes: '(max-width: 768px) 100vw, 50vw',
 			alt: 'Blue bluster 5',
 		},
-		{ type: 'video', src: './assets/video/blaster.mp4' }, // відео не потребує alt
+		{ type: 'video', src: './assets/video/blaster.mp4' },
 	],
-	red: [{ type: 'image', src: './assets/images/red.webp', alt: 'Red version' }],
+	red: [
+		{
+			type: 'image',
+			src: './assets/images/red.webp',
+			sizes: '(max-width: 768px) 100vw, 50vw',
+			alt: 'Red version',
+		},
+	],
 	black: [
 		{
 			type: 'image',
 			src: './assets/images/black-1.webp',
+			sizes: '(max-width: 768px) 100vw, 50vw',
 			alt: 'Black version 1',
 		},
 		{
 			type: 'image',
 			src: './assets/images/black-2.webp',
+			sizes: '(max-width: 768px) 100vw, 50vw',
 			alt: 'Black version 2',
 		},
 		{
 			type: 'image',
 			src: './assets/images/black-3.webp',
+			sizes: '(max-width: 768px) 100vw, 50vw',
 			alt: 'Black version 3',
 		},
 	],
 }
+
 
 const thumbnailsContainer = document.getElementById('thumbnails')
 const mainMediaContainer = document.getElementById('mainMediaContainer')
@@ -257,16 +250,23 @@ function updateMain(type, src) {
 		img.src = src
 		img.id = 'mainMedia'
 
-		// Шукаємо alt у галереї
 		const currentColor =
 			document.querySelector('.color-picker.selected')?.dataset.color || 'blue'
-		const altText =
-			galleries[currentColor]?.find(item => item.src === src)?.alt || ''
-		img.alt = altText
+
+		const galleryItem = galleries[currentColor]?.find(item => item.src === src)
+		img.alt = galleryItem?.alt || ''
+
+		if (galleryItem?.srcset) {
+			img.srcset = galleryItem.srcset
+		}
+		if (galleryItem?.sizes) {
+			img.sizes = galleryItem.sizes
+		}
 
 		mainMediaContainer.appendChild(img)
 	}
 }
+
 
 document.querySelectorAll('#order-btn').forEach(btn => {
 	btn.addEventListener('click', function (e) {

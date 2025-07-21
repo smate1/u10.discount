@@ -46,7 +46,7 @@
               <p class="header__discount">UA діскаунт клуб</p>
               <p class="header__text">Іграшки за діскаунт цінами</p>
             </div>
-            <a class="header__order header__order-desktop" href="#">
+            <a class="header__order header__order-desktop" href="https://t.me/u10_discount_bot">
               <img src="./assets/images/telegram.svg" alt="blaster">
               <p class="header__text">
                 оформити замовлення без <br> зідзвону в телеграм боті
@@ -66,7 +66,7 @@
               <span></span>
             </button>
           </div>
-          <a class="header__order header__order-mobile" href="#">
+          <a class="header__order header__order-mobile" href="https://t.me/u10_discount_bot">
             <img src="./assets/images/telegram.svg" alt="blaster">
             <p class="header__text">
               оформити замовлення без <br> зідзвону в телеграм боті
@@ -403,9 +403,9 @@
             <form class="order__form order__form--first">
               <div class="input-error-message" style="display: none;"></div>
 
-              <h6 class="order__title">
+              <p class="order__title">
                 Заповнити форму
-              </h6>
+              </hp>
               <input class="order__input phone-mask" type="tel" placeholder="Ваш номер" required>
               <div class="order__btn-wrapper">
                 <button class="order__btn" id="order-btn">
@@ -641,9 +641,9 @@
       <div class="container">
         <div class="order__inner order__inner--second">
           <form class="order__form order__form--second">
-            <h6 class="order__title">
+            <p class="order__title">
               Заповнити форму
-            </h6>
+            </p>
             <input class="order__input phone-mask" type="tel" placeholder="Ваш номер" required>
             <div class="order__btn-wrapper">
               <button class="order__btn" id="order-btn">
@@ -759,7 +759,7 @@
           <div class="footer__left">
             <p class="footer__discount">UA діскаунт клуб</p>
             <p class="footer__text">Іграшки за діскаунт цінами</p>
-            <a class="footer__telegram-link" href="#">
+            <a class="footer__telegram-link" href="https://t.me/u10_discount_bot">
               <img src="./assets/images/telegram.svg" alt="blaster">
               <p class="footer__telegram-text">
                 оформити замовлення без зідзвону в телеграм боті
@@ -797,9 +797,9 @@
             </ul>
           </div>
           <form class="footer__form">
-            <h6 class="order__title">
+            <p class="order__title">
               Заповнити форму
-            </h6>
+            </p>
             <input class="order__input" type="number" placeholder="Ваш номер" required>
             <div class="order__btn-wrapper">
               <button class="order__btn" id="order-btn">
@@ -829,7 +829,56 @@
       });
     </script>
 
+    <script>
+      document.querySelector('.order-popup__form').addEventListener('submit', async function (e) {
+        e.preventDefault();
 
+        const countryCode = document.getElementById('countrySelect').value; // <--- Додано
+        const phone = document.getElementById('phoneInput').value.trim();
+        const fullPhone = `${countryCode} ${phone}`; // <--- Формуємо повний номер
+
+        const noCall = document.getElementById('noCallCheckbox').checked;
+        const selectedColor = document.querySelector('.color-picker.selected')?.dataset.color || 'не вибрано';
+        const productName = "Водяний пістолет Weal Maker";
+        const price = "1099₴";
+
+        const message = `
+🛒 НОВЕ ЗАМОВЛЕННЯ
+
+📦 Товар: ${productName}
+🎨 Колір: ${selectedColor}
+💰 Ціна: ${price}
+📞 Телефон: ${fullPhone}
+📵 Не дзвонити: ${noCall ? "✅" : "❌"}
+  `;
+
+        const token = "7778812492:AAHYUPIK9mvPmaWwxnScL9IrrrnUlaUYJXQ";
+        const chatId = "-4962267225";
+        const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+        try {
+          const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: chatId, text: message })
+          });
+
+          if (res.ok) {
+            // Зменшуємо лічильник товару для обраного кольору
+            if (typeof simulatePurchase === 'function' && selectedColor !== 'не вибрано') {
+              simulatePurchase(selectedColor);
+            }
+            window.location.href = "/thank-you.html";
+          } else {
+            alert("❌ Помилка при надсиланні. Спробуйте пізніше.");
+          }
+        } catch (error) {
+          console.error("Помилка:", error);
+          alert("❌ Не вдалося надіслати замовлення.");
+        }
+      });
+
+    </script>
 
     <script>
       document.addEventListener('DOMContentLoaded', function () {
