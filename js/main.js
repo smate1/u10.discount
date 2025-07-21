@@ -1,3 +1,26 @@
+document.addEventListener('DOMContentLoaded', () => {
+	document
+		.querySelector('.order-popup__form')
+		.addEventListener('submit', async function (e) {
+			e.preventDefault()
+
+			// ... твій код
+			const res = await fetch('../order.php', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					productName,
+					selectedColor,
+					price,
+					fullPhone,
+					noCall,
+				}),
+			})
+
+			// ...
+		})
+})
+
 // Данные о остатках товара для каждого цвета
 const productStock = {
 	blue: {
@@ -242,7 +265,6 @@ function updateMain(type, src) {
 		img.alt = altText
 
 		mainMediaContainer.appendChild(img)
-
 	}
 }
 
@@ -361,7 +383,7 @@ function updateThumbnails(color) {
 			thumb.muted = true
 			thumb.loop = true
 			thumb.playsInline = true
-			thumb.poster = item.src.replace('.mp4', 'blaster-preview.avif')
+			thumb.poster = item.src.replace('.mp4', '-preview.avif')
 		}
 
 		thumb.onclick = () => updateMain(item.type, item.src)
