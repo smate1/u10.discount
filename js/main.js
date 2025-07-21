@@ -149,44 +149,74 @@ const galleries = {
 		{
 			type: 'image',
 			src: './assets/images/bluster-2.avif',
+			srcset:
+				'./assets/images/bluster-2.avif 1x, ./assets/images/bluster-2@2x.avif 2x',
+			sizes: '(max-width: 768px) 100vw, 50vw',
 			alt: 'Blue bluster 2',
 		},
 		{
 			type: 'image',
 			src: './assets/images/bluster-3.avif',
+			srcset:
+				'./assets/images/bluster-3.avif 1x, ./assets/images/bluster-3@2x.avif 2x',
+			sizes: '(max-width: 768px) 100vw, 50vw',
 			alt: 'Blue bluster 3',
 		},
 		{
 			type: 'image',
 			src: './assets/images/bluster-4.avif',
+			srcset:
+				'./assets/images/bluster-4.avif 1x, ./assets/images/bluster-4@2x.avif 2x',
+			sizes: '(max-width: 768px) 100vw, 50vw',
 			alt: 'Blue bluster 4',
 		},
 		{
 			type: 'image',
 			src: './assets/images/bluster-5.avif',
+			srcset:
+				'./assets/images/bluster-5.avif 1x, ./assets/images/bluster-5@2x.avif 2x',
+			sizes: '(max-width: 768px) 100vw, 50vw',
 			alt: 'Blue bluster 5',
 		},
-		{ type: 'video', src: './assets/video/blaster.mp4' }, // відео не потребує alt
+		{ type: 'video', src: './assets/video/blaster.mp4' }, // відео — без srcset
 	],
-	red: [{ type: 'image', src: './assets/images/red.webp', alt: 'Red version' }],
+	red: [
+		{
+			type: 'image',
+			src: './assets/images/red.webp',
+			srcset: './assets/images/red.webp 1x, ./assets/images/red@2x.webp 2x',
+			sizes: '(max-width: 768px) 100vw, 50vw',
+			alt: 'Red version',
+		},
+	],
 	black: [
 		{
 			type: 'image',
 			src: './assets/images/black-1.webp',
+			srcset:
+				'./assets/images/black-1.webp 1x, ./assets/images/black-1@2x.webp 2x',
+			sizes: '(max-width: 768px) 100vw, 50vw',
 			alt: 'Black version 1',
 		},
 		{
 			type: 'image',
 			src: './assets/images/black-2.webp',
+			srcset:
+				'./assets/images/black-2.webp 1x, ./assets/images/black-2@2x.webp 2x',
+			sizes: '(max-width: 768px) 100vw, 50vw',
 			alt: 'Black version 2',
 		},
 		{
 			type: 'image',
 			src: './assets/images/black-3.webp',
+			srcset:
+				'./assets/images/black-3.webp 1x, ./assets/images/black-3@2x.webp 2x',
+			sizes: '(max-width: 768px) 100vw, 50vw',
 			alt: 'Black version 3',
 		},
 	],
 }
+
 
 const thumbnailsContainer = document.getElementById('thumbnails')
 const mainMediaContainer = document.getElementById('mainMediaContainer')
