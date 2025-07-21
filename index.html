@@ -5,17 +5,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>u10.discount</title>
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1770163227238882');
+    fbq('track', 'PageView');
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Meta Pixel Code -->
+
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
+
 <body>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1770163227238882&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
+
   <main class="main">
     <div class="top__wrapper">
       <header class="header" id="header">
@@ -424,8 +446,7 @@
                   Можна грати довго завдяки великому акумулятору
                 </div>
                 <p class="benefits__item-text">
-                  The machined kettle has a smooth black finish and contemporary shape that stands
-                  apart from most plastic appliances.
+                  Акумулятор дозволяє грати до 30 хвилин безперервно. Зарядка від USB займає всього 1,5 години.
                 </p>
               </div>
               <div class="benefits__item">
@@ -433,7 +454,7 @@
                   Є два магазини що дає змогу тактичним перезарядкам
                 </div>
                 <p class="benefits__item-text">
-                  Shaped for steady pours and insulated to prevent burns.
+                  Великий магазин на 500 мл для тривалої гри та малий на 50 мл для швидких маневрів.
                 </p>
               </div>
               <div class="benefits__item">
@@ -441,8 +462,7 @@
                   Велика дальність стрільби
                 </div>
                 <p class="benefits__item-text">
-                  The one button control has a digital readout for setting temperature and turning the
-                  kettle on and off.
+                  Потужний мотор забезпечує дальність стрільби до 10 метрів для активних ігор на відкритому повітрі.
                 </p>
               </div>
               <div class="benefits__item">
@@ -450,7 +470,7 @@
                   Гарний привід намочити партнера коли діти награлись
                 </div>
                 <p class="benefits__item-text">
-                  Designed specifically for controlled pour-overs that don't slash or sputter.
+                  Ідеальне рішення для сімейного відпочинку - діти граються, дорослі можуть приєднатися до веселощів.
                 </p>
               </div>
             </div>
@@ -893,7 +913,7 @@
       const swiper = new Swiper(".mySwiper", {
         slidesPerView: "auto",
         spaceBetween: 16,
-        centeredSlides: false,
+        centeredSlides: true,
         freeMode: {
           enabled: true,
           sticky: false,

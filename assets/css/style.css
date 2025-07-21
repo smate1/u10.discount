@@ -542,11 +542,21 @@ body {
 	margin-bottom: 17px;
 	padding: 10px 16px;
 	transition: all 0.3s;
+	animation: glow 3s infinite; /* <<< додаємо анімацію */
 }
 
 .header__order-btn:hover {
 	background: #f7c600;
-	color: #000;
+	color: #000;  box-shadow: 0 0 20px 10px #ffcf00; /* Підсвітка при наведенні */
+
+}
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 0px #ffd600;
+  }
+  50% {
+    box-shadow: 0 0 20px 8px #ffd600;
+  }
 }
 .header__gift {
 	display: flex;
@@ -697,6 +707,12 @@ body {
 }
 .header__gallery-additional {
 	gap: 10px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	flex-wrap: nowrap;
+	max-width: 100%;
+	-webkit-overflow-scrolling: touch;
+	scrollbar-width: thin;
 }
 .header__gallery-colors {
 	gap: 4px;
@@ -713,6 +729,8 @@ body {
 	width: 80px;
 	border-radius: 15px;
 	height: 77px;
+	flex-shrink: 0;
+	min-width: 80px;
 }
 
 .color-picker {
@@ -1672,6 +1690,8 @@ body {
 		width: 52px;
 		height: 51px;
 		border-radius: 10px;
+		flex-shrink: 0;
+		min-width: 52px;
 	}
 	.header__gallery-additional {
 		gap: 6px;
@@ -1782,13 +1802,13 @@ body {
 		height: 100%;
 	}
 	.swiper {
-		padding-left: 215px; /* або більше, під дизайн */
-		overflow: visible; /* щоб стрілки/елементи не обрізались */
+		/* padding-left: 215px;  */
+		overflow: visible; 
+		min-width: 100%;
 	}
 
 	.swiper-slide {
 		flex-shrink: 0;
-
 		width: auto;
 	}
 	.header__info-items {
@@ -2025,7 +2045,7 @@ body {
 		top: 210%;
 	}
 	.swiper {
-		padding-left: 300px; /* або більше, під дизайн */
+		/* padding-left: 300px;  */
 		overflow: visible; /* щоб стрілки/елементи не обрізались */
 	}
 }
@@ -2040,6 +2060,10 @@ body {
 	#videoPlayer {
 		width: 350px;
 		height: 200px;
+	}
+	.swiper-wrapper{
+		padding-left: 200px;
+
 	}
 	.choice__img-wrapper {
 		height: 350px;
@@ -2203,7 +2227,7 @@ body {
 		max-height: 50px;
 	}
 	.swiper {
-		padding-left: 420px; /* або більше, під дизайн */
+		/* padding-left: 420px;  */
 		overflow: visible; /* щоб стрілки/елементи не обрізались */
 	}
 }
@@ -2377,5 +2401,31 @@ body {
 	}
 	100% {
 		opacity: 1;
+	}
+}
+
+/* --- MOBILE-SPECIFIC STYLES FOR GALLERY ADDITIONAL --- */
+@media (max-width: 650px) {
+	.header__gallery-additional {
+		justify-content: flex-start;
+		overflow-x: auto;
+		overflow-y: hidden;
+		flex-wrap: nowrap;
+		max-width: calc(100vw - 40px);
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+		padding-bottom: 5px;
+	}
+
+	.header__gallery-additional::-webkit-scrollbar {
+		display: none;
+	}
+	.thumbnail {
+		width: 52px;
+		height: 51px;
+		border-radius: 10px;
+		flex-shrink: 0;
+		min-width: 52px;
 	}
 }
