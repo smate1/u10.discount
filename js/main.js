@@ -233,7 +233,16 @@ function updateMain(type, src) {
 		const img = document.createElement('img')
 		img.src = src
 		img.id = 'mainMedia'
+
+		// Шукаємо alt у галереї
+		const currentColor =
+			document.querySelector('.color-picker.selected')?.dataset.color || 'blue'
+		const altText =
+			galleries[currentColor]?.find(item => item.src === src)?.alt || ''
+		img.alt = altText
+
 		mainMediaContainer.appendChild(img)
+
 	}
 }
 

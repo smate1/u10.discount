@@ -32,7 +32,7 @@ body {
 }
 .main {
 	position: relative;
-	background-image: url('../images/main-bg.svg');
+	background-image: url('../images/main-bg.avif');
 	background-position: top center;
 	background-repeat: no-repeat;
 	background-size: 100% auto;
@@ -1475,7 +1475,7 @@ body {
 		background-image: none !important;
 	}
 	.top__wrapper {
-		background-image: url('../images/main-bg.svg');
+		background-image: url('../images/main-mobile-bg.avif');
 		background-repeat: no-repeat;
 		background-position: top center;
 		background-size: cover;
@@ -2403,7 +2403,7 @@ body {
 /* --- MOBILE-SPECIFIC STYLES FOR GALLERY ADDITIONAL --- */
 @media (max-width: 650px) {
 	.header__gallery-additional {
-		justify-content: flex-start;
+		justify-content: center;
 		overflow-x: auto;
 		overflow-y: hidden;
 		flex-wrap: nowrap;
