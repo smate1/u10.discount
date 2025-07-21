@@ -92,7 +92,7 @@
           <div class="header__inner">
             <div class="header__content">
               <h1 class="header__title">Знижка до <span>40%</span></h1>
-              <h4 class="header__subtitle header__subtitle-desktop">на водний електробластер</h4>
+              <p class="header__subtitle header__subtitle-desktop">на водний електробластер</p>
               <p class="header__price header__price-desktop">1200₴</p>
               <div class="header__amount-mobile">
                 <h4 class="header__subtitle header__mobile">на водний <span>1200₴</span> електробластер</h4>
@@ -475,7 +475,7 @@
             <div class="benefits__photos-row">
               <div class="benefits__photo small video-preview">
                 <img src="./assets/images/benefits-2.avif" alt="Video preview">
-                <button class="play-button" onclick="openVideoModal()"></button>
+                <button class="play-button" onclick="openVideoModal()" aria-label="buttonPlay"></button>
               </div>
               <div class="benefits__photo small">
                 <img src="./assets/images/benefits-3.avif" alt="blaster">
@@ -830,55 +830,13 @@
     </script>
 
     <script>
-      document.querySelector('.order-popup__form').addEventListener('submit', async function (e) {
-        e.preventDefault();
-
-        const countryCode = document.getElementById('countrySelect').value; // <--- Додано
-        const phone = document.getElementById('phoneInput').value.trim();
-        const fullPhone = `${countryCode} ${phone}`; // <--- Формуємо повний номер
-
-        const noCall = document.getElementById('noCallCheckbox').checked;
-        const selectedColor = document.querySelector('.color-picker.selected')?.dataset.color || 'не вибрано';
-        const productName = "Водяний пістолет Weal Maker";
-        const price = "1099₴";
-
-        const message = `
-🛒 НОВЕ ЗАМОВЛЕННЯ
-
-📦 Товар: ${productName}
-🎨 Колір: ${selectedColor}
-💰 Ціна: ${price}
-📞 Телефон: ${fullPhone}
-📵 Не дзвонити: ${noCall ? "✅" : "❌"}
-  `;
-
-        const token = "7778812492:AAHYUPIK9mvPmaWwxnScL9IrrrnUlaUYJXQ";
-        const chatId = "-4962267225";
-        const url = `https://api.telegram.org/bot${token}/sendMessage`;
-
-        try {
-          const res = await fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: chatId, text: message })
-          });
-
-          if (res.ok) {
-            // Зменшуємо лічильник товару для обраного кольору
-            if (typeof simulatePurchase === 'function' && selectedColor !== 'не вибрано') {
-              simulatePurchase(selectedColor);
-            }
-            window.location.href = "/thank-you.html";
-          } else {
-            alert("❌ Помилка при надсиланні. Спробуйте пізніше.");
-          }
-        } catch (error) {
-          console.error("Помилка:", error);
-          alert("❌ Не вдалося надіслати замовлення.");
-        }
-      });
-
+      await fetch('/order.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productName, selectedColor, price, fullPhone, noCall })
+      })
     </script>
+
 
     <script>
       document.addEventListener('DOMContentLoaded', function () {
@@ -1040,6 +998,7 @@
     </button>
 
   </main>
+  <script src="./order.php"></script>
   <script src="./js/main.js"></script>
 </body>
 

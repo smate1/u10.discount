@@ -361,7 +361,7 @@ function updateThumbnails(color) {
 			thumb.muted = true
 			thumb.loop = true
 			thumb.playsInline = true
-			thumb.poster = item.src.replace('.mp4', '-preview.avif')
+			thumb.poster = item.src.replace('.mp4', 'blaster-preview.avif')
 		}
 
 		thumb.onclick = () => updateMain(item.type, item.src)

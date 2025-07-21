@@ -1275,7 +1275,10 @@ body {
 	display: flex;
 	gap: 108px;
 }
-
+.about__logos img:last-child{
+	width: 178px;
+	max-height: 37px;
+}
 .feedbacks {
 	padding-bottom: 80px;
 }
@@ -1364,6 +1367,11 @@ body {
 	font-style: normal;
 	font-weight: 400;
 	line-height: 20px; /* 142.857% */
+	transition: all .3s;
+}
+
+.footer__telegram-text:hover{
+	color: #ffd700;
 }
 
 .footer__phone {
@@ -1396,6 +1404,11 @@ body {
 	font-style: normal;
 	font-weight: 400;
 	line-height: 24px; /* 150% */
+	transition: all .3s;
+}
+
+.footer__item:hover{
+	color: #ffd700;
 }
 
 .footer__item + .footer__item {
