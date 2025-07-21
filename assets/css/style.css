@@ -1802,7 +1802,6 @@ body {
 		height: 100%;
 	}
 	.swiper {
-		/* padding-left: 215px;  */
 		overflow: visible; 
 		min-width: 100%;
 	}
@@ -2045,7 +2044,6 @@ body {
 		top: 210%;
 	}
 	.swiper {
-		/* padding-left: 300px;  */
 		overflow: visible; /* щоб стрілки/елементи не обрізались */
 	}
 }
@@ -2063,7 +2061,6 @@ body {
 	}
 	.swiper-wrapper{
 		padding-left: 200px;
-
 	}
 	.choice__img-wrapper {
 		height: 350px;
@@ -2227,7 +2224,6 @@ body {
 		max-height: 50px;
 	}
 	.swiper {
-		/* padding-left: 420px;  */
 		overflow: visible; /* щоб стрілки/елементи не обрізались */
 	}
 }
