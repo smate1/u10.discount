@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>u10.discount</title>
-  <script defer >
+  <script defer>
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
         n.callMethod ?
@@ -325,7 +325,6 @@
                     <option value="+44">UK</option>
                     <option value="+49">DE</option>
                     <option value="+33">FR</option>
-                    <!-- інші країни -->
                   </select>
                 </div>
                 <input class="order-popup__input phone-mask" id="phoneInput" type="tel" placeholder="098-000-00-00"
@@ -906,28 +905,28 @@
         });
       });
     </script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const defaultColor = 'blue'
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const defaultColor = 'blue'
 
-    updateStockDisplay(defaultColor)
-    updateColorPickersState()
+        updateStockDisplay(defaultColor)
+        updateColorPickersState()
 
-    // Додаємо подію на зміну кольору
-    document.querySelectorAll('.color-picker').forEach(picker => {
-      picker.addEventListener('click', () => {
-        // Видаляємо попередній вибраний
-        document.querySelectorAll('.color-picker').forEach(p => p.classList.remove('selected'))
+        // Додаємо подію на зміну кольору
+        document.querySelectorAll('.color-picker').forEach(picker => {
+          picker.addEventListener('click', () => {
+            // Видаляємо попередній вибраний
+            document.querySelectorAll('.color-picker').forEach(p => p.classList.remove('selected'))
 
-        // Позначаємо обраний
-        picker.classList.add('selected')
+            // Позначаємо обраний
+            picker.classList.add('selected')
 
-        const color = picker.dataset.color
-        updateStockDisplay(color)
+            const color = picker.dataset.color
+            updateStockDisplay(color)
+          })
+        })
       })
-    })
-  })
-</script>
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Initialize Swiper -->
