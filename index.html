@@ -164,7 +164,7 @@
               </div>
               <!-- Кольори -->
               <div class="header__gallery-colors">
-                <img class="color-picker" src="./assets/images/blue.webp" data-color="blue" alt="Blue">
+                <img class="color-picker selected" src="./assets/images/blue.webp" data-color="blue" alt="Blue">
                 <img class="color-picker" src="./assets/images/red.webp" data-color="red" alt="Red">
                 <img class="color-picker" src="./assets/images/black-1.webp" data-color="black" alt="Black">
               </div>
@@ -906,6 +906,28 @@
         });
       });
     </script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const defaultColor = 'blue'
+
+    updateStockDisplay(defaultColor)
+    updateColorPickersState()
+
+    // Додаємо подію на зміну кольору
+    document.querySelectorAll('.color-picker').forEach(picker => {
+      picker.addEventListener('click', () => {
+        // Видаляємо попередній вибраний
+        document.querySelectorAll('.color-picker').forEach(p => p.classList.remove('selected'))
+
+        // Позначаємо обраний
+        picker.classList.add('selected')
+
+        const color = picker.dataset.color
+        updateStockDisplay(color)
+      })
+    })
+  })
+</script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Initialize Swiper -->
