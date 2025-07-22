@@ -98,7 +98,10 @@
               <div class="header__amount-mobile">
                 <h4 class="header__subtitle header__mobile">на водний <span>1200₴</span> електробластер</h4>
               </div>
-              <div class="header__amount header__desktop">Залишилось <span>50</span> з <span>540</span> штук</div>
+              <div class="header__amount header__desktop">
+                Залишилось <span class="header__current"></span class="header__total"> з <span></span> штук
+              </div>
+
               <button class="header__order-btn header__desktop order-btn" id="order-btn">
                 Замовити бластер
               </button>
@@ -168,7 +171,10 @@
           <button class="header__order-btn header__mobile order-btn" id="order-btn">
             Замовити бластер
           </button>
-          <div class="header__amount header__mobile">Залишилось <span>50</span> з <span>540</span> штук</div>
+          <div class="header__amount header__mobile">
+            Залишилось <span class="header__current"></span> з <span class="header__total"></span> штук
+          </div>
+
           <div class="header__gift header__mobile">
             <img class="header__gift-img" src="./assets/images/gift.avif" alt="blaster">
             <p class="header__gift-text">Додатковий магазин в подарунок</p>
@@ -316,10 +322,6 @@
                 <div class="country-select">
                   <select id="countrySelect">
                     <option value="+38">UA</option>
-                    <option value="+1">US</option>
-                    <option value="+44">UK</option>
-                    <option value="+49">DE</option>
-                    <option value="+33">FR</option>
                   </select>
                 </div>
                 <input class="order-popup__input phone-mask" id="phoneInput" type="tel" placeholder="098-000-00-00"
@@ -370,32 +372,39 @@
             Комплектація
           </h2>
           <div class="set__img">
-            <img class="set__main-img" src="./assets/images/set.avif" alt="blaster">
+            <img class="set__main-img" src="./assets/images/set.avif" alt="Водяний бластер WEAL MAKER">
+
             <div class="set__item item1">
-              <img class="set__item-img" src="./assets/images/set-1.svg" alt="blaster">
-              <p class="set__item-text">10 метрів</p>
+              <img class="set__item-img" src="./assets/images/set-1.svg" alt="USB зарядка">
+              <p class="set__item-text">USB зарядка</p>
             </div>
+
             <div class="set__item item2">
-              <img class="set__item-img" src="./assets/images/set-2.svg" alt="blaster">
-              <p class="set__item-text">10 метрів</p>
+              <img class="set__item-img" src="./assets/images/set-2.svg" alt="500 мл обойма">
+              <p class="set__item-text">Обойма 500 мл</p>
             </div>
+
             <div class="set__item item3">
-              <img class="set__item-img" src="./assets/images/set-3.svg" alt="blaster">
-              <p class="set__item-text">10 метрів</p>
+              <img class="set__item-img" src="./assets/images/set-3.svg" alt="50 мл обойма">
+              <p class="set__item-text">Обойма 50 мл</p>
             </div>
+
             <div class="set__item item4">
-              <img class="set__item-img" src="./assets/images/set-4.svg" alt="blaster">
-              <p class="set__item-text">10 метрів</p>
+              <img class="set__item-img" src="./assets/images/set-4.svg" alt="Автоматична подача води">
+              <p class="set__item-text">Автоматична подача</p>
             </div>
+
             <div class="set__item item5">
-              <img class="set__item-img" src="./assets/images/set-5.svg" alt="blaster">
-              <p class="set__item-text">10 метрів</p>
+              <img class="set__item-img" src="./assets/images/set-5.svg" alt="Електричний затвор">
+              <p class="set__item-text">Електричний затвор</p>
             </div>
+
             <div class="set__item item6">
-              <img class="set__item-img" src="./assets/images/set-6.svg" alt="blaster">
-              <p class="set__item-text">10 метрів</p>
+              <img class="set__item-img" src="./assets/images/set-6.svg" alt="Дальність до 10 м">
+              <p class="set__item-text">Дальність до 10 м</p>
             </div>
           </div>
+
         </div>
       </section>
       <div class="order" id="contacts">
@@ -403,10 +412,9 @@
           <div class="order__inner">
             <form class="order__form order__form--first">
               <div class="input-error-message" style="display: none;"></div>
-
               <p class="order__title">
                 Заповнити форму
-              </hp>
+              </p>
               <input class="order__input phone-mask" type="tel" placeholder="Ваш номер" required>
               <div class="order__btn-wrapper">
                 <button class="order__btn" id="order-btn">
@@ -668,89 +676,225 @@
             Відгуки
           </h2>
           <div class="feedbacks__items">
+
             <div class="feedbacks__item">
+              <div class="feedbacks__top">
+                <p class="feedbacks__name">Андрій Кришталь</p>
+                <p class="feedbacks__date">3 липня 2025</p>
+              </div>
+              <p class="feedbacks__description">
+                Відгук від покупця. Продавець: u10.discount. Колір: Синій
+              </p>
               <div class="feedbacks__stars">
-                ★★★★★
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+              </div>
+              <p class="feedbacks__text">Працює як заявлено, нарікань немає.</p>
+              <div class="feedbacks__pros">
+                <strong>Переваги:</strong> <span>Акумулятор</span>
+              </div>
+              <div class="feedbacks__cons">
+                <strong>Недоліки:</strong> <span>Не збиває шахеди)))</span>
+              </div>
+            </div>
+
+            <div class="feedbacks__item">
+              <div class="feedbacks__top">
+                <p class="feedbacks__name">Николай Трофимцев</p>
+                <p class="feedbacks__date">2 липня 2025</p>
+              </div>
+              <p class="feedbacks__description">
+                Відгук від покупця. Продавець: u10.discount. Колір: Синій
+              </p>
+              <div class="feedbacks__stars">
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
               </div>
               <p class="feedbacks__text">
-                Іграшка топчик , ми з чоловіком зацінили, завтра поїду відвезу сину.
+                Вирішив порадувати молодшого брата і купив йому такий пістолет. Ціна класна, якісно зроблений, стріляє
+                далеко.
+              </p>
+              <div class="feedbacks__pros">
+                <strong>Переваги:</strong> <span>Ціна, якість, дальність стрільби</span>
+              </div>
+              <div class="feedbacks__cons">
+                <strong>Недоліки:</strong> <span>Поки не виявив</span>
+              </div>
+            </div>
+
+            <div class="feedbacks__item">
+              <div class="feedbacks__top">
+                <p class="feedbacks__name">Михаил Кущенко</p>
+                <p class="feedbacks__date">1 липня 2025</p>
+              </div>
+              <p class="feedbacks__description">
+                Відгук від покупця. Продавець: u10.discount. Колір: Червоний
+              </p>
+              <div class="feedbacks__stars">
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+              </div>
+              <p class="feedbacks__text">
+                Класний пістолетик, купував брату, задоволений як слон. Хороша якість, стріляє далеко. Дякую!
+              </p>
+              <div class="feedbacks__pros">
+                <strong>Переваги:</strong> <span>Якість, потужність</span>
+              </div>
+              <div class="feedbacks__cons">
+                <strong>Недоліки:</strong> <span>Немає</span>
+              </div>
+            </div>
+
+            <div class="feedbacks__item">
+              <div class="feedbacks__top">
+                <p class="feedbacks__name">Илья Колоджук</p>
+                <p class="feedbacks__date">30 червня 2025</p>
+              </div>
+              <p class="feedbacks__description">
+                Відгук від покупця. Продавець: u10.discount. Колір: Червоний
+              </p>
+              <div class="feedbacks__stars">
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+              </div>
+              <p class="feedbacks__text">
+                Якісний пістолет, подарував племіннику на день народження — він у захваті.
+              </p>
+              <div class="feedbacks__pros">
+                <strong>Переваги:</strong> <span>Працює як треба</span>
+              </div>
+              <div class="feedbacks__cons">
+                <strong>Недоліки:</strong> <span>Не виявлено</span>
+              </div>
+            </div>
+
+            <div class="feedbacks__item">
+              <div class="feedbacks__top">
+                <p class="feedbacks__name">Вера Федорович
+</p>
+                <p class="feedbacks__date">28 червня 2025</p>
+              </div>
+              <p class="feedbacks__description">
+                Відгук від покупця. Продавець: u10.discount. Колір: Синій
+              </p>
+              <div class="feedbacks__stars">
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+              </div>
+              <p class="feedbacks__text">
+                Іграшка топчик , ми з чоловіком зацінили, завтра поїду відвезу сину .
                 Надіюсь буде і надалі так працювати.
               </p>
-              <div class="feedbacks__author">
-                <p class="feedbacks__name">
-                  Вера Федорович
-                </p>
+              <div class="feedbacks__pros">
+                <strong>Переваги:</strong> <span>Класно , швидко стріляє .Прийшло все вчасно , навіть раніше чим говорив продавець.</span>
+              </div>
+              <div class="feedbacks__cons">
+                <strong>Недоліки:</strong> <span>Не знайшли поки</span>
               </div>
             </div>
             <div class="feedbacks__item">
+              <div class="feedbacks__top">
+                <p class="feedbacks__name">Андрей Пешков</p>
+                <p class="feedbacks__date">28 червня 2025</p>
+              </div>
+              <p class="feedbacks__description">
+                Відгук від покупця. Продавець: u10.discount. Колір: Синій
+              </p>
               <div class="feedbacks__stars">
-                ★★★★★
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <svg class="star" viewBox="0 0 24 24" width="18" height="18" fill="#f9a825">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
               </div>
               <p class="feedbacks__text">
-                Вирішив порадувати молодшого брата і купив йому такий пістолет) Ціна класна, якісно зроблений пістолет,
-                стріляє далеко)
+                Класний пістолет. Купували дитині на день народження — був дуже радий. Гарна ціна і швидке оформлення.
               </p>
-              <div class="feedbacks__author">
-                <p class="feedbacks__name">
-                  Николай Трофимцев
-                </p>
+              <div class="feedbacks__pros">
+                <strong>Переваги:</strong> <span>Ціна, сервіс</span>
+              </div>
+              <div class="feedbacks__cons">
+                <strong>Недоліки:</strong> <span>Немає</span>
               </div>
             </div>
-            <div class="feedbacks__item">
-              <div class="feedbacks__stars">
-                ★★★★★
-              </div>
-              <p class="feedbacks__text">
-                Классный пистолетик, покупал брату, остался доволен как слон) Хорошее качество, стреляет далеко) Спасибо
-                большое!)
-              </p>
-              <div class="feedbacks__author">
-                <p class="feedbacks__name">
-                  Михаил Кущенко
-                </p>
-              </div>
-            </div>
-            <div class="feedbacks__item">
-              <div class="feedbacks__stars">
-                ★★★★★
-              </div>
-              <p class="feedbacks__text">
-                Якісний пістолет, подарував племіннику на день народження) Він був у захваті) Дякую!
-              </p>
-              <div class="feedbacks__author">
-                <p class="feedbacks__name">
-                  Илья Колоджук
-                </p>
-              </div>
-            </div>
-            <div class="feedbacks__item">
-              <div class="feedbacks__stars">
-                ★★★★★
-              </div>
-              <p class="feedbacks__text">
-                Классный пистолет) Покупали ребенку на день рождение, был очень рад такому подарку)
-                Хорошая цена и быстро обработали заказ!
-              </p>
-              <div class="feedbacks__author">
-                <p class="feedbacks__name">
-                  Андрей Пешков
-                </p>
-              </div>
-            </div>
-            <div class="feedbacks__item">
-              <div class="feedbacks__stars">
-                ★★★★★
-              </div>
-              <p class="feedbacks__text">
-                Працює як заявлено, нарікань немає.
-              </p>
-              <div class="feedbacks__author">
-                <p class="feedbacks__name">
-                  Андрій Кришталь
-                </p>
-              </div>
-            </div>
+
           </div>
+
         </div>
       </div>
     </section>
@@ -779,7 +923,7 @@
             <a class="footer__phone" href="+380952231710">
               +38 (095) 223 - 17 - 10
             </a>
-            <a class="footer__call" href="#">
+            <a class="footer__call header__call" href="#">
               Замовити дзвінок
             </a>
             <ul class="footer__list">
@@ -812,6 +956,200 @@
       </div>
     </footer>
 
+
+
+    <script>
+      function updateStockDisplay(color) {
+        const stock = productStock[color]
+        if (!stock) return
+
+        document.querySelectorAll('.header__amount').forEach(element => {
+          const availableSpan = element.querySelector('.header__current')
+          const totalSpan = element.querySelector('.header__total')
+
+          if (availableSpan && totalSpan) {
+            availableSpan.textContent = stock.available
+            totalSpan.textContent = stock.total
+
+            element.classList.toggle('low-stock', stock.available > 0 && stock.available < 10)
+          }
+        })
+      }
+      // Функция для загрузки актуальных данных о залишках с сервера
+      async function loadStockFromServer() {
+        try {
+          // Спробуємо завантажити через PHP API
+          let response = await fetch('./stock.php', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          })
+
+          // Якщо PHP недоступний, завантажуємо напряму з JSON файлу
+          if (!response.ok) {
+            console.log('PHP API недоступний, завантажуємо з JSON файлу')
+            response = await fetch('./stock.json', {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            })
+          }
+
+          if (response.ok) {
+            const serverStock = await response.json()
+            productStock = serverStock
+            console.log('Залишки товару завантажено з сервера:', productStock)
+
+            // Оновлюємо дисплей після завантаження даних
+            const selectedPicker = document.querySelector('.color-picker.selected')
+            const currentColor = selectedPicker
+              ? selectedPicker.dataset.color
+              : 'blue'
+            updateStockDisplay(currentColor)
+            updateColorPickersState()
+          } else {
+            console.warn('Не вдалося завантажити дані про залишки з сервера')
+          }
+        } catch (error) {
+          console.warn(
+            'Помилка при завантаженні даних про залишки, використовуємо локальні дані:',
+            error
+          )
+          // Використовуємо початкові дані при помилці
+          const selectedPicker = document.querySelector('.color-picker.selected')
+          const currentColor = selectedPicker ? selectedPicker.dataset.color : 'blue'
+          updateStockDisplay(currentColor)
+          updateColorPickersState()
+        }
+      }
+
+
+      // Функция для обновления остатков на сервере при покупке
+      async function updateStockOnServer(color) {
+        try {
+          const response = await fetch('./stock.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ color: color }),
+          })
+
+          if (response.ok) {
+            const result = await response.json()
+
+            if (result.success) {
+              // Обновляем локальные данные
+              productStock[color].available = result.available
+              console.log(
+                `Залишки оновлено на сервері. ${color}: ${result.available}`
+              )
+              return true
+            } else {
+              console.error('Помилка при оновленні залишків:', result.message)
+              return false
+            }
+          } else {
+            // Fallback: обновляем только локально для демонстрации
+            console.warn(
+              'PHP API недоступний, оновлюємо тільки локально для демонстрації'
+            )
+            if (productStock[color].available > 0) {
+              productStock[color].available--
+              console.log(
+                `Локально зменшено залишки ${color}: ${productStock[color].available}`
+              )
+              return true
+            }
+            return false
+          }
+        } catch (error) {
+          console.warn(
+            'Помилка при оновленні залишків на сервері, використовуємо локальне оновлення:',
+            error
+          )
+          // Fallback: обновляем только локально для демонстрации
+          if (productStock[color].available > 0) {
+            productStock[color].available--
+            console.log(
+              `Локально зменшено залишки ${color}: ${productStock[color].available}`
+            )
+            return true
+          }
+          return false
+        }
+      }
+
+      // Функция для периодического обновления остатков каждые 30 секунд
+      function startStockUpdateInterval() {
+        // Обновляем каждые 30 секунд
+        setInterval(async () => {
+          const oldStock = JSON.parse(JSON.stringify(productStock)) // создаем копию
+          await loadStockFromServer()
+
+          // Проверяем, изменились ли данные
+          const stockChanged =
+            JSON.stringify(oldStock) !== JSON.stringify(productStock)
+          if (stockChanged) {
+            console.log('Залишки товару оновлені:', productStock)
+          }
+        }, 30000) // 30 секунд
+      }
+
+      // Функция для обновления счетчика остатков
+      function updateStockDisplay(color) {
+        const stock = productStock[color]
+        const stockElements = document.querySelectorAll('.header__amount')
+
+        stockElements.forEach(element => {
+          const availableSpan = element.querySelector('span:first-child')
+          const totalSpan = element.querySelector('span:last-child')
+
+          if (availableSpan && totalSpan) {
+            availableSpan.textContent = stock.available
+            totalSpan.textContent = stock.total
+
+            // Удаляем старые классы
+            element.classList.remove('low-stock', 'out-of-stock')
+
+            // Добавляем соответствующий класс в зависимости от количества
+            if (stock.available === 0) {
+              element.classList.add('out-of-stock')
+            } else if (stock.available < 10) {
+              element.classList.add('low-stock')
+            }
+          }
+        })
+      }
+
+      // Функция для проверки доступности товара
+      function isProductAvailable(color) {
+        return productStock[color].available > 0
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        loadStockFromServer()
+        startStockUpdateInterval()
+      })
+
+    </script>
+    <!-- <script>
+      function handleBuy() {
+        const selected = document.querySelector('.color-picker.selected')
+        const color = selected ? selected.dataset.color : 'blue'
+
+        // Викликаємо наявну функцію
+        updateStockOnServer(color).then(success => {
+          if (success) {
+            updateStockDisplay(color)
+            updateColorPickersState()
+          } else {
+            alert('Цей колір наразі недоступний')
+          }
+        })
+      }
+    </script> -->
     <script>
       document.querySelectorAll('.phone-mask').forEach(input => {
         input.addEventListener('input', function () {
@@ -999,7 +1337,11 @@
       });
 
     </script>
-
+    <script>
+      if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+        document.body.classList.add('ios');
+      }
+    </script>
     <script>
       function openVideoModal() {
         const modal = document.getElementById('videoModal');

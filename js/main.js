@@ -1,47 +1,5 @@
-// Данные о остатках товара для каждого цвета
-const productStock = {
-	blue: {
-		available: 50, // количество доступно
-		total: 540, // общее количество
-	},
-	red: {
-		available: 50, // количество доступно
-		total: 540,
-	},
-	black: {
-		available: 0, // нет в наличии - будет показано "продано"
-		total: 540,
-	},
-}
+// Данные о остатках товара для каждого цвета (будут загружены с сервера)
 
-// Функция для обновления счетчика остатков
-function updateStockDisplay(color) {
-	const stock = productStock[color]
-	const stockElements = document.querySelectorAll('.header__amount')
-
-	stockElements.forEach(element => {
-		const availableSpan = element.querySelector('span:first-child')
-		const totalSpan = element.querySelector('span:last-child')
-
-		if (availableSpan && totalSpan) {
-			availableSpan.textContent = stock.available
-			totalSpan.textContent = stock.total
-
-			// Удаляем старые классы
-			element.classList.remove('low-stock')
-
-			// Добавляем класс low-stock если товара мало (меньше 10)
-			if (stock.available > 0 && stock.available < 10) {
-				element.classList.add('low-stock')
-			}
-		}
-	})
-}
-
-// Функция для проверки доступности товара
-function isProductAvailable(color) {
-	return productStock[color].available > 0
-}
 
 // Функция для обновления состояния селекторов цвета
 function updateColorPickersState() {
@@ -65,9 +23,14 @@ function updateColorPickersState() {
 }
 
 // Функция для имитации покупки товара (для тестирования)
-function simulatePurchase(color) {
+async function simulatePurchase(color) {
 	if (productStock[color].available > 0) {
-		productStock[color].available--
+		// Сначала обновляем на сервере
+		const updated = await updateStockOnServer(color)
+		if (!updated) {
+			alert('Не вдалося оновити залишки на сервері. Спробуйте ще раз.')
+			return
+		}
 
 		// Находим текущий выбранный цвет
 		const selectedPicker = document.querySelector('.color-picker.selected')
@@ -108,7 +71,7 @@ window.testProductStock = {
 		simulatePurchase(color)
 	},
 
-	// Пополнение товара
+	// Пополнение товара (только локально, для теста)
 	restockProduct: (color, amount = 10) => {
 		if (productStock[color]) {
 			productStock[color].available += amount
@@ -130,7 +93,7 @@ window.testProductStock = {
 		}
 	},
 
-	// Сброс к начальным остаткам
+	// Сброс к начальным остаткам (только локально, для теста)
 	resetStock: () => {
 		productStock.blue.available = 50
 		productStock.red.available = 50
@@ -141,6 +104,38 @@ window.testProductStock = {
 		updateStockDisplay(currentColor)
 		updateColorPickersState()
 		console.log('Остатки сброшены к начальным значениям')
+	},
+
+	// Примусове завантаження залишків з сервера
+	loadFromServer: () => {
+		loadStockFromServer()
+	},
+
+	// Тестування покупки через сервер
+	buyFromServer: async color => {
+		if (!color) {
+			console.log(
+				'Використання: testProductStock.buyFromServer("blue|red|black")'
+			)
+			return
+		}
+		const success = await updateStockOnServer(color)
+		if (success) {
+			console.log(
+				`✅ Покупка успішна! Залишилось ${productStock[color].available}`
+			)
+			// Оновлюємо дисплей
+			const selectedPicker = document.querySelector('.color-picker.selected')
+			const currentColor = selectedPicker
+				? selectedPicker.dataset.color
+				: 'blue'
+			if (color === currentColor) {
+				updateStockDisplay(color)
+			}
+			updateColorPickersState()
+		} else {
+			console.log('❌ Помилка при покупці')
+		}
 	},
 }
 
@@ -188,6 +183,27 @@ const galleries = {
 			sizes: '(max-width: 768px) 100vw, 50vw',
 			alt: 'Red version',
 		},
+		{
+			type: 'image',
+			src: './assets/images/red-2.webp',
+			srcset: './assets/images/red.webp 1x, ./assets/images/red@2x.webp 2x',
+			sizes: '(max-width: 768px) 100vw, 50vw',
+			alt: 'Red version',
+		},
+		{
+			type: 'image',
+			src: './assets/images/red-3.webp',
+			srcset: './assets/images/red.webp 1x, ./assets/images/red@2x.webp 2x',
+			sizes: '(max-width: 768px) 100vw, 50vw',
+			alt: 'Red version',
+		},
+		{
+			type: 'image',
+			src: './assets/images/red-4.jpg',
+			srcset: './assets/images/red.webp 1x, ./assets/images/red@2x.webp 2x',
+			sizes: '(max-width: 768px) 100vw, 50vw',
+			alt: 'Red version',
+		},
 	],
 	black: [
 		{
@@ -216,7 +232,6 @@ const galleries = {
 		},
 	],
 }
-
 
 const thumbnailsContainer = document.getElementById('thumbnails')
 const mainMediaContainer = document.getElementById('mainMediaContainer')
@@ -458,19 +473,25 @@ function initLikeToggles() {
 
 // Запуск при завантаженні сторінки
 if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', () => {
+	document.addEventListener('DOMContentLoaded', async () => {
 		preloadVideo()
 		updateThumbnails('blue')
 		initLikeToggles()
+		await loadStockFromServer()
 		updateStockDisplay('blue')
 		updateColorPickersState()
+		startStockUpdateInterval()
 	})
 } else {
-	preloadVideo()
-	updateThumbnails('blue')
-	initLikeToggles()
-	updateStockDisplay('blue')
-	updateColorPickersState()
+	;(async () => {
+		preloadVideo()
+		updateThumbnails('blue')
+		initLikeToggles()
+		await loadStockFromServer()
+		updateStockDisplay('blue')
+		updateColorPickersState()
+		startStockUpdateInterval()
+	})()
 }
 
 // Обробник для sticky кнопки замовлення
@@ -491,34 +512,30 @@ document
 	})
 
 // Функція для показу/приховування sticky кнопки в залежності від прокрутки
-function handleStickyButton() {
-	const stickyBtn = document.getElementById('stickyOrderBtn')
-	const scrollY = window.scrollY
+// function handleStickyButton() {
+// 	const stickyBtn = document.getElementById('stickyOrderBtn')
+// 	const scrollY = window.scrollY
 
-	// Показуємо кнопку після прокрутки на 100px
-	if (scrollY > 100) {
-		stickyBtn.style.opacity = '1'
-		stickyBtn.style.visibility = 'visible'
-		stickyBtn.style.transform = 'scale(1)'
-	} else {
-		stickyBtn.style.opacity = '0'
-		stickyBtn.style.visibility = 'hidden'
-		stickyBtn.style.transform = 'scale(0.8)'
-	}
-}
+// 	if (scrollY > 100) {
+// 		stickyBtn.style.opacity = '1'
+// 		stickyBtn.style.visibility = 'visible'
+// 		stickyBtn.style.transform = 'scale(1)'
+// 	} else {
+// 		stickyBtn.style.opacity = '0'
+// 		stickyBtn.style.visibility = 'hidden'
+// 		stickyBtn.style.transform = 'scale(0.8)'
+// 	}
+// }
 
-// Слухач прокрутки для sticky кнопки
-window.addEventListener('scroll', handleStickyButton)
+// window.addEventListener('scroll', handleStickyButton)
 
-// Ініціалізуємо стан sticky кнопки при завантаженні
-document.addEventListener('DOMContentLoaded', function () {
-	const stickyBtn = document.getElementById('stickyOrderBtn')
-	// Початково приховуємо кнопку
-	stickyBtn.style.opacity = '0'
-	stickyBtn.style.visibility = 'hidden'
-	stickyBtn.style.transform = 'scale(0.8)'
-	stickyBtn.style.transition = 'all 0.3s ease'
+// document.addEventListener('DOMContentLoaded', function () {
+// 	const stickyBtn = document.getElementById('stickyOrderBtn')
+// 	// Початково приховуємо кнопку
+// 	stickyBtn.style.opacity = '0'
+// 	stickyBtn.style.visibility = 'hidden'
+// 	stickyBtn.style.transform = 'scale(0.8)'
+// 	stickyBtn.style.transition = 'all 0.3s ease'
 
-	// Перевіряємо початкову позицію прокрутки
-	handleStickyButton()
-})
+// 	handleStickyButton()
+// })
