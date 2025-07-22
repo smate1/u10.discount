@@ -1,39 +1,3 @@
-const socket = io()
-
-// Елементи
-const stockSpans = document.querySelectorAll('.header__amount span')
-const buyBtn = document.getElementById('buyBtn')
-
-// Завантаження початкового значення
-fetch('/stock')
-	.then(res => res.json())
-	.then(data => {
-		if (stockSpans.length >= 1) {
-			stockSpans[0].textContent = data.stock
-		}
-	})
-
-// Реакція на натискання кнопки
-if (buyBtn) {
-	buyBtn.addEventListener('click', () => {
-		fetch('/buy', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-		})
-			.then(res => res.json())
-			.then(data => {
-				if (!data.success) alert(data.message)
-			})
-	})
-}
-
-// Оновлення через WebSocket
-socket.on('stockUpdated', newStock => {
-	if (stockSpans.length >= 1) {
-		stockSpans[0].textContent = newStock
-	}
-})
-
 // Данные о остатках товара для каждого цвета
 const productStock = {
 	blue: {
@@ -252,6 +216,7 @@ const galleries = {
 		},
 	],
 }
+
 
 const thumbnailsContainer = document.getElementById('thumbnails')
 const mainMediaContainer = document.getElementById('mainMediaContainer')
@@ -489,140 +454,6 @@ function initLikeToggles() {
 			localStorage.setItem(`heartLiked_${id}`, toggle.checked)
 		})
 	})
-}
-
-// Lazy load функції для оптимізації
-function initializeSwiper() {
-	if (typeof Swiper !== 'undefined') {
-		const swiper = new Swiper('.mySwiper', {
-			slidesPerView: 'auto',
-			spaceBetween: 16,
-			centeredSlides: true,
-			freeMode: {
-				enabled: true,
-				sticky: false,
-			},
-			watchSlidesProgress: true,
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-			resistanceRatio: 0,
-			watchOverflow: true,
-			on: {
-				reachEnd: function () {
-					this.allowSlideNext = false
-				},
-				reachBeginning: function () {
-					this.allowSlidePrev = false
-				},
-				fromEdge: function () {
-					this.allowSlideNext = true
-					this.allowSlidePrev = true
-				},
-				slideChange: function () {
-					if (this.isEnd) {
-						this.allowSlideNext = false
-					} else {
-						this.allowSlideNext = true
-					}
-
-					if (this.isBeginning) {
-						this.allowSlidePrev = false
-					} else {
-						this.allowSlidePrev = true
-					}
-				},
-			},
-		})
-	}
-}
-
-// Ініціалізація після завантаження DOM
-document.addEventListener('DOMContentLoaded', function () {
-	// Ініціалізація всіх компонентів
-	initializeSwiper()
-
-	// Ініціалізація маски для телефону
-	if (typeof IMask !== 'undefined') {
-		const phoneInputs = document.querySelectorAll('.phone-mask')
-		phoneInputs.forEach(input => {
-			IMask(input, {
-				mask: '+{38}(000)000-00-00',
-			})
-		})
-	}
-
-	// Lazy loading для зображень (fallback для старих браузерів)
-	if ('IntersectionObserver' in window) {
-		const lazyImages = document.querySelectorAll('img[loading="lazy"]')
-		const imageObserver = new IntersectionObserver((entries, observer) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					const img = entry.target
-					img.loading = 'eager'
-					observer.unobserve(img)
-				}
-			})
-		})
-
-		lazyImages.forEach(img => imageObserver.observe(img))
-	}
-
-	// Оптимізована ініціалізація всіх селекторів кольорів
-	updateColorPickersState()
-
-	// Встановлення початкового кольору
-	const firstAvailableColor = Object.keys(productStock).find(
-		color => productStock[color].available > 0
-	)
-	if (firstAvailableColor) {
-		updateStockDisplay(firstAvailableColor)
-	}
-})
-
-// Оптимізація для WebP/AVIF підтримки
-function checkImageSupport() {
-	return new Promise(resolve => {
-		const webp = new Image()
-		webp.onload = webp.onerror = () => {
-			resolve(webp.height === 2)
-		}
-		webp.src =
-			'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA'
-	})
-}
-
-// Перевірка підтримки сучасних форматів зображень
-checkImageSupport().then(supportsWebP => {
-	if (!supportsWebP) {
-		// Fallback для старих браузерів
-		console.log('WebP not supported, using fallback images')
-	}
-})
-
-// Оптимізована функція для відкриття модального вікна з відео
-function openVideoModal() {
-	const modal = document.getElementById('videoModal')
-	if (modal) {
-		modal.style.display = 'block'
-		document.body.classList.add('no-scroll')
-	}
-}
-
-// Закриття модального вікна
-function closeVideoModal() {
-	const modal = document.getElementById('videoModal')
-	if (modal) {
-		modal.style.display = 'none'
-		document.body.classList.remove('no-scroll')
-		// Зупинка відео при закритті
-		const video = modal.querySelector('video')
-		if (video) {
-			video.pause()
-			video.currentTime = 0
-		}
-	}
 }
 
 // Запуск при завантаженні сторінки

@@ -1,7 +1,6 @@
 *,
 html {
 	box-sizing: border-box;
-	scroll-behavior: smooth;
 }
 .no-scroll {
 	overflow: hidden;
