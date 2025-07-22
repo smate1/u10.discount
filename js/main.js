@@ -1,5 +1,5 @@
 // Данные о остатках товара для каждого цвета
-let productStock = {
+const productStock = {
 	blue: {
 		available: 50, // количество доступно
 		total: 540, // общее количество
@@ -14,34 +14,6 @@ let productStock = {
 	},
 }
 
-// Функция для загрузки данных о товарах из localStorage
-function loadStockFromStorage() {
-	const saved = localStorage.getItem('productStock')
-	if (saved) {
-		try {
-			const parsedStock = JSON.parse(saved)
-			// Проверяем структуру данных перед использованием
-			if (parsedStock && typeof parsedStock === 'object') {
-				productStock = { ...productStock, ...parsedStock }
-			}
-		} catch (e) {
-			console.error('Ошибка при загрузке данных о товарах:', e)
-		}
-	}
-}
-
-// Функция для сохранения данных о товарах в localStorage
-function saveStockToStorage() {
-	try {
-		localStorage.setItem('productStock', JSON.stringify(productStock))
-	} catch (e) {
-		console.error('Ошибка при сохранении данных о товарах:', e)
-	}
-}
-
-// Загружаем данные при инициализации
-loadStockFromStorage()
-
 // Функция для обновления счетчика остатков
 function updateStockDisplay(color) {
 	const stock = productStock[color]
@@ -55,8 +27,10 @@ function updateStockDisplay(color) {
 			availableSpan.textContent = stock.available
 			totalSpan.textContent = stock.total
 
+			// Удаляем старые классы
 			element.classList.remove('low-stock')
 
+			// Добавляем класс low-stock если товара мало (меньше 10)
 			if (stock.available > 0 && stock.available < 10) {
 				element.classList.add('low-stock')
 			}
@@ -77,84 +51,34 @@ function updateColorPickersState() {
 		const color = picker.dataset.color
 		const isAvailable = isProductAvailable(color)
 
+		// Удаляем старые классы
 		picker.classList.remove('sold-out', 'available')
 
 		if (!isAvailable) {
 			picker.classList.add('sold-out')
-			picker.style.pointerEvents = 'none'
+			picker.style.pointerEvents = 'none' // отключаем клики
 		} else {
 			picker.classList.add('available')
-			picker.style.pointerEvents = 'auto'
+			picker.style.pointerEvents = 'auto' // включаем клики
 		}
 	})
-}
-
-// Функция для уменьшения количества товара при заказе
-function processPurchase(color) {
-	if (productStock[color] && productStock[color].available > 0) {
-		productStock[color].available--
-		saveStockToStorage()
-
-		// Обновляем отображение для всех элементов
-		updateStockDisplay(color)
-		updateColorPickersState()
-
-		console.log(
-			`Товар заказан! Остатки ${color}: ${productStock[color].available}`
-		)
-
-		// Запускаем событие для синхронизации между вкладками
-		window.dispatchEvent(
-			new StorageEvent('storage', {
-				key: 'productStock',
-				newValue: JSON.stringify(productStock),
-			})
-		)
-
-		return true
-	}
-	return false
-}
-
-// Слушатель для синхронизации между вкладками браузера
-window.addEventListener('storage', function (e) {
-	if (e.key === 'productStock' && e.newValue) {
-		try {
-			const newStock = JSON.parse(e.newValue)
-			productStock = newStock
-
-			// Обновляем отображение на текущей вкладке
-			const selectedPicker = document.querySelector('.color-picker.selected')
-			const currentColor = selectedPicker
-				? selectedPicker.dataset.color
-				: 'blue'
-			updateStockDisplay(currentColor)
-			updateColorPickersState()
-		} catch (error) {
-			console.error('Ошибка синхронизации данных:', error)
-		}
-	}
-})
-
-// Функция для получения выбранного цвета товара
-function getSelectedColor() {
-	const selectedPicker = document.querySelector('.color-picker.selected')
-	return selectedPicker ? selectedPicker.dataset.color : 'blue'
 }
 
 // Функция для имитации покупки товара (для тестирования)
 function simulatePurchase(color) {
 	if (productStock[color].available > 0) {
 		productStock[color].available--
-		saveStockToStorage()
 
+		// Находим текущий выбранный цвет
 		const selectedPicker = document.querySelector('.color-picker.selected')
 		const currentColor = selectedPicker ? selectedPicker.dataset.color : 'blue'
 
+		// Обновляем дисплей если это текущий цвет
 		if (color === currentColor) {
 			updateStockDisplay(color)
 		}
 
+		// Обновляем состояние всех селекторов
 		updateColorPickersState()
 
 		console.log(
@@ -165,6 +89,7 @@ function simulatePurchase(color) {
 
 // Функции для тестирования (доступны в консоли браузера)
 window.testProductStock = {
+	// Просмотр текущих остатков
 	checkStock: () => {
 		console.log('Текущие остатки товара:')
 		Object.entries(productStock).forEach(([color, stock]) => {
@@ -172,6 +97,7 @@ window.testProductStock = {
 		})
 	},
 
+	// Имитация покупки
 	buyProduct: color => {
 		if (!color) {
 			console.log(
@@ -182,11 +108,12 @@ window.testProductStock = {
 		simulatePurchase(color)
 	},
 
+	// Пополнение товара
 	restockProduct: (color, amount = 10) => {
 		if (productStock[color]) {
 			productStock[color].available += amount
-			saveStockToStorage()
 
+			// Обновляем дисплей если это текущий цвет
 			const selectedPicker = document.querySelector('.color-picker.selected')
 			const currentColor = selectedPicker
 				? selectedPicker.dataset.color
@@ -203,11 +130,11 @@ window.testProductStock = {
 		}
 	},
 
+	// Сброс к начальным остаткам
 	resetStock: () => {
 		productStock.blue.available = 50
 		productStock.red.available = 50
 		productStock.black.available = 0
-		saveStockToStorage()
 
 		const selectedPicker = document.querySelector('.color-picker.selected')
 		const currentColor = selectedPicker ? selectedPicker.dataset.color : 'blue'
@@ -251,7 +178,7 @@ const galleries = {
 			sizes: '(max-width: 768px) 100vw, 50vw',
 			alt: 'Blue bluster 5',
 		},
-		{ type: 'video', src: './assets/video/blaster.mp4' },
+		{ type: 'video', src: './assets/video/blaster.mp4' }, // відео — без srcset
 	],
 	red: [
 		{
@@ -336,6 +263,7 @@ function updateMain(type, src) {
 		img.src = src
 		img.id = 'mainMedia'
 
+		// Шукаємо alt у галереї
 		const currentColor =
 			document.querySelector('.color-picker.selected')?.dataset.color || 'blue'
 		const altText =
@@ -346,106 +274,52 @@ function updateMain(type, src) {
 	}
 }
 
-// Обработчик отправки формы заказа
-function handleOrderSubmission(form, phoneValue) {
-	const selectedColor = getSelectedColor()
-
-	// Проверяем доступность товара
-	if (!isProductAvailable(selectedColor)) {
-		alert('Вибачте, цей товар розпроданий!')
-		return false
-	}
-
-	// Проверяем корректность номера телефона
-	if (!phoneValue || phoneValue.length < 10) {
-		alert('Будь ласка, введіть коректний номер телефону')
-		return false
-	}
-
-	// Уменьшаем количество товара
-	const success = processPurchase(selectedColor)
-
-	if (success) {
-		alert(`Дякуємо за замовлення! Ваш бластер (${selectedColor}) зарезервовано.
-Залишилося товарів: ${productStock[selectedColor].available}
-Ми зв'яжемося з вами найближчим часом.`)
-
-		form.reset()
-		closeOrderPopup()
-
-		return true
-	} else {
-		alert('Помилка при оформленні замовлення. Спробуйте ще раз.')
-		return false
-	}
-}
-
-// Обработчик для кнопок заказа (открытие попапа только для кнопок вне форм)
 document.querySelectorAll('#order-btn').forEach(btn => {
 	btn.addEventListener('click', function (e) {
-		// Проверяем, находится ли кнопка внутри формы
-		const form = btn.closest('form')
-
-		// Если кнопка внутри формы, позволяем форме обработать отправку
-		if (form) {
-			// Не прерываем стандартное поведение - форма отправится
-			return
-		}
-
-		// Если кнопка НЕ в форме, открываем попап
 		e.preventDefault()
 
-		const popupPhoneInput = document.getElementById('phoneInput')
-		if (popupPhoneInput) {
-			popupPhoneInput.value = ''
+		// Знаходимо інпут з номером у цій же формі
+		const form = btn.closest('form')
+
+		// Якщо кнопка знаходиться всередині форми
+		if (form) {
+			const input = form.querySelector('.phone-mask')
+			const phoneValue = input?.value.trim()
+
+			// Перевірка, чи заповнено номер
+			if (!phoneValue || phoneValue.length < 10) {
+				alert('Будь ласка, введіть свій номер телефону')
+				input?.focus()
+				return
+			}
+
+			// Вставити номер у попап
+			const popupPhoneInput = document.getElementById('phoneInput')
+			if (popupPhoneInput) {
+				popupPhoneInput.value = phoneValue
+			}
+		} else {
+			// Якщо кнопка НЕ в формі, очищаємо поле номера у попапі
+			const popupPhoneInput = document.getElementById('phoneInput')
+			if (popupPhoneInput) {
+				popupPhoneInput.value = ''
+			}
 		}
 
+		// Відкриваємо попап
 		document.getElementById('orderPopup').classList.add('active')
 		document.body.classList.add('no-scroll')
 	})
 })
 
-// Обработчик отправки формы заказа (в попапе)
-document.addEventListener('DOMContentLoaded', function () {
-	document
-		.getElementById('orderForm')
-		?.addEventListener('submit', function (e) {
-			e.preventDefault()
-			const form = e.target
-			const phoneInput = form.querySelector('.phone-mask, #phoneInput')
-			const phoneValue = phoneInput?.value.trim()
-			handleOrderSubmission(form, phoneValue)
-		})
-
-	// Обработчики для всех остальных форм заказа на странице
-	document.querySelectorAll('.order__form').forEach(form => {
-		form.addEventListener('submit', function (e) {
-			e.preventDefault()
-			const phoneInput = form.querySelector('.phone-mask, .order__input')
-			const phoneValue = phoneInput?.value.trim()
-			handleOrderSubmission(form, phoneValue)
-		})
-	})
-
-	// Обработчик для формы в футере
-	document
-		.querySelector('.footer__form')
-		?.addEventListener('submit', function (e) {
-			e.preventDefault()
-			const phoneInput = e.target.querySelector('.order__input')
-			const phoneValue = phoneInput?.value.trim()
-			handleOrderSubmission(e.target, phoneValue)
-		})
-})
-
-// Функция закриття попапу
+// Функція закриття попапу
 function closeOrderPopup() {
 	document.getElementById('orderPopup').classList.remove('active')
 	document.body.classList.remove('no-scroll')
 }
 
 // Закриття попапу по кнопці
-document.getElementById('popupClose')?.addEventListener('click', function () {
+document.getElementById('popupClose').addEventListener('click', function () {
 	closeOrderPopup()
 })
 
@@ -457,7 +331,8 @@ document.addEventListener('keydown', function (e) {
 })
 
 // Закриття попапу по кліку на оверлей
-document.getElementById('orderPopup')?.addEventListener('click', function (e) {
+document.getElementById('orderPopup').addEventListener('click', function (e) {
+	// Закриваємо тільки якщо клікнули на сам попап (оверлей), а не на його контент
 	if (e.target === this) {
 		closeOrderPopup()
 	}
@@ -467,10 +342,14 @@ document.getElementById('orderPopup')?.addEventListener('click', function (e) {
 document.querySelectorAll('.choice__item-btn').forEach(btn => {
 	btn.addEventListener('click', function (e) {
 		e.preventDefault()
+
+		// Очищаємо поле номера у попапі для нового замовлення
 		const popupPhoneInput = document.getElementById('phoneInput')
 		if (popupPhoneInput) {
 			popupPhoneInput.value = ''
 		}
+
+		// Відкриваємо попап
 		document.getElementById('orderPopup').classList.add('active')
 		document.body.classList.add('no-scroll')
 	})
@@ -480,10 +359,14 @@ document.querySelectorAll('.choice__item-btn').forEach(btn => {
 document.querySelectorAll('.header__call').forEach(btn => {
 	btn.addEventListener('click', function (e) {
 		e.preventDefault()
+
+		// Очищаємо поле номера у попапі для нового замовлення
 		const popupPhoneInput = document.getElementById('phoneInput')
 		if (popupPhoneInput) {
 			popupPhoneInput.value = ''
 		}
+
+		// Відкриваємо попап
 		document.getElementById('orderPopup').classList.add('active')
 		document.body.classList.add('no-scroll')
 	})
@@ -522,6 +405,7 @@ function updateThumbnails(color) {
 
 	updateMain(mainItem.type, mainItem.src)
 
+	// Обновляем счетчик остатков и состояние селекторов цвета
 	updateStockDisplay(color)
 	updateColorPickersState()
 }
@@ -530,12 +414,15 @@ colorPickers.forEach(picker => {
 	picker.addEventListener('click', () => {
 		const color = picker.dataset.color
 
+		// Проверяем доступность товара перед переключением
 		if (!isProductAvailable(color)) {
 			alert('Цей товар розпроданий!')
 			return
 		}
 
+		// Удаляем активный класс со всех селекторов цвета
 		colorPickers.forEach(p => p.classList.remove('selected'))
+		// Добавляем активный класс к выбранному
 		picker.classList.add('selected')
 
 		updateThumbnails(color)
@@ -557,9 +444,11 @@ function initLikeToggles() {
 		const id = toggle.dataset.id
 		if (!id) return
 
+		// Завантаження стану
 		const saved = localStorage.getItem(`heartLiked_${id}`)
 		toggle.checked = saved === 'true'
 
+		// Збереження при зміні
 		toggle.addEventListener('change', () => {
 			localStorage.setItem(`heartLiked_${id}`, toggle.checked)
 		})
@@ -615,11 +504,10 @@ function initializeSwiper() {
 
 // Ініціалізація після завантаження DOM
 document.addEventListener('DOMContentLoaded', function () {
-	// Загружаем данные о товарах при инициализации
-	loadStockFromStorage()
-
+	// Ініціалізація всіх компонентів
 	initializeSwiper()
 
+	// Ініціалізація маски для телефону
 	if (typeof IMask !== 'undefined') {
 		const phoneInputs = document.querySelectorAll('.phone-mask')
 		phoneInputs.forEach(input => {
@@ -629,6 +517,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		})
 	}
 
+	// Lazy loading для зображень (fallback для старих браузерів)
 	if ('IntersectionObserver' in window) {
 		const lazyImages = document.querySelectorAll('img[loading="lazy"]')
 		const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -644,8 +533,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		lazyImages.forEach(img => imageObserver.observe(img))
 	}
 
+	// Оптимізована ініціалізація всіх селекторів кольорів
 	updateColorPickersState()
 
+	// Встановлення початкового кольору
 	const firstAvailableColor = Object.keys(productStock).find(
 		color => productStock[color].available > 0
 	)
@@ -666,12 +557,15 @@ function checkImageSupport() {
 	})
 }
 
+// Перевірка підтримки сучасних форматів зображень
 checkImageSupport().then(supportsWebP => {
 	if (!supportsWebP) {
+		// Fallback для старих браузерів
 		console.log('WebP not supported, using fallback images')
 	}
 })
 
+// Оптимізована функція для відкриття модального вікна з відео
 function openVideoModal() {
 	const modal = document.getElementById('videoModal')
 	if (modal) {
@@ -680,11 +574,13 @@ function openVideoModal() {
 	}
 }
 
+// Закриття модального вікна
 function closeVideoModal() {
 	const modal = document.getElementById('videoModal')
 	if (modal) {
 		modal.style.display = 'none'
 		document.body.classList.remove('no-scroll')
+		// Зупинка відео при закритті
 		const video = modal.querySelector('video')
 		if (video) {
 			video.pause()
@@ -696,9 +592,6 @@ function closeVideoModal() {
 // Запуск при завантаженні сторінки
 if (document.readyState === 'loading') {
 	document.addEventListener('DOMContentLoaded', () => {
-		// Загружаем данные о товарах при инициализации
-		loadStockFromStorage()
-
 		preloadVideo()
 		updateThumbnails('blue')
 		initLikeToggles()
@@ -706,9 +599,6 @@ if (document.readyState === 'loading') {
 		updateColorPickersState()
 	})
 } else {
-	// Загружаем данные о товарах при инициализации
-	loadStockFromStorage()
-
 	preloadVideo()
 	updateThumbnails('blue')
 	initLikeToggles()
@@ -716,22 +606,29 @@ if (document.readyState === 'loading') {
 	updateColorPickersState()
 }
 
+// Обробник для sticky кнопки замовлення
 document
 	.getElementById('stickyOrderBtn')
-	?.addEventListener('click', function (e) {
+	.addEventListener('click', function (e) {
 		e.preventDefault()
+
+		// Очищаємо поле номера у попапі для нового замовлення
 		const popupPhoneInput = document.getElementById('phoneInput')
 		if (popupPhoneInput) {
 			popupPhoneInput.value = ''
 		}
+
+		// Відкриваємо попап
 		document.getElementById('orderPopup').classList.add('active')
 		document.body.classList.add('no-scroll')
 	})
 
+// Функція для показу/приховування sticky кнопки в залежності від прокрутки
 function handleStickyButton() {
 	const stickyBtn = document.getElementById('stickyOrderBtn')
 	const scrollY = window.scrollY
 
+	// Показуємо кнопку після прокрутки на 100px
 	if (scrollY > 100) {
 		stickyBtn.style.opacity = '1'
 		stickyBtn.style.visibility = 'visible'
@@ -743,15 +640,18 @@ function handleStickyButton() {
 	}
 }
 
+// Слухач прокрутки для sticky кнопки
 window.addEventListener('scroll', handleStickyButton)
 
+// Ініціалізуємо стан sticky кнопки при завантаженні
 document.addEventListener('DOMContentLoaded', function () {
 	const stickyBtn = document.getElementById('stickyOrderBtn')
-	if (stickyBtn) {
-		stickyBtn.style.opacity = '0'
-		stickyBtn.style.visibility = 'hidden'
-		stickyBtn.style.transform = 'scale(0.8)'
-		stickyBtn.style.transition = 'all 0.3s ease'
-		handleStickyButton()
-	}
+	// Початково приховуємо кнопку
+	stickyBtn.style.opacity = '0'
+	stickyBtn.style.visibility = 'hidden'
+	stickyBtn.style.transform = 'scale(0.8)'
+	stickyBtn.style.transition = 'all 0.3s ease'
+
+	// Перевіряємо початкову позицію прокрутки
+	handleStickyButton()
 })
