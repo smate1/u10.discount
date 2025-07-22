@@ -309,7 +309,7 @@
                 data-img="./assets/images/black-1.webp" alt="Black">
             </div>
           </div>
-          <form class="order-popup__form">
+          <form class="order-popup__form" id="orderForm">
             <p class="order-popup__form--text">Ваш номер</p>
             <div class="order-popup__input-wrapper">
               <div class="phone-input-container">
@@ -327,10 +327,8 @@
                 <div class="input-error-message" style="display: none;"></div>
 
               </div>
-              <button class="order-popup__submit">Замовити бластер</button>
+              <button class="order-popup__submit" type="submit">Замовити бластер</button>
             </div>
-
-
 
             <label class="order-popup__checkbox">
               <input type="checkbox" hidden id="noCallCheckbox">
@@ -406,15 +404,15 @@
 
               <p class="order__title">
                 Заповнити форму
-              </hp>
-              <input class="order__input phone-mask" type="tel" placeholder="Ваш номер" required>
+                </hp>
+                <input class="order__input phone-mask" type="tel" placeholder="Ваш номер" required>
               <div class="order__btn-wrapper">
                 <button class="order__btn" id="order-btn">
                   Замовити бластер
                 </button>
               </div>
             </form>
-            <a class="order__link order__link-first" href="https://t.me/u10_discount_bot">
+            <a class="order__link order__link-first" href="#">
               <img class="order__link-img" src="./assets/images/telegram.svg" alt="blaster">
               <p class="order__link-text">
                 замовити та оплатити через ТГ бот
@@ -647,12 +645,12 @@
             </p>
             <input class="order__input phone-mask" type="tel" placeholder="Ваш номер" required>
             <div class="order__btn-wrapper">
-              <button class="order__btn" id="order-btn">
+              <button class="order__btn" type="submit">
                 Замовити бластер
               </button>
             </div>
           </form>
-          <a class="order__link order__link-second" href="https://t.me/u10_discount_bot">
+          <a class="order__link order__link-second" href="#">
             <img class="order__link-img" src="./assets/images/telegram.svg" alt="blaster">
             <p class="order__link-text">
               замовити та оплатити через ТГ бот
@@ -702,7 +700,7 @@
               </div>
               <p class="feedbacks__text">
                 Классный пистолетик, покупал брату, остался доволен как слон) Хорошее качество, стреляет далеко) Спасибо
-                большое!)
+                большое!))
               </p>
               <div class="feedbacks__author">
                 <p class="feedbacks__name">
@@ -803,7 +801,7 @@
             </p>
             <input class="order__input" type="number" placeholder="Ваш номер" required>
             <div class="order__btn-wrapper">
-              <button class="order__btn" id="order-btn">
+              <button class="order__btn" type="submit">
                 Замовити бластер
               </button>
             </div>
