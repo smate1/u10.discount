@@ -1,3 +1,39 @@
+const socket = io()
+
+// Елементи
+const stockSpans = document.querySelectorAll('.header__amount span')
+const buyBtn = document.getElementById('buyBtn')
+
+// Завантаження початкового значення
+fetch('/stock')
+	.then(res => res.json())
+	.then(data => {
+		if (stockSpans.length >= 1) {
+			stockSpans[0].textContent = data.stock
+		}
+	})
+
+// Реакція на натискання кнопки
+if (buyBtn) {
+	buyBtn.addEventListener('click', () => {
+		fetch('/buy', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+		})
+			.then(res => res.json())
+			.then(data => {
+				if (!data.success) alert(data.message)
+			})
+	})
+}
+
+// Оновлення через WebSocket
+socket.on('stockUpdated', newStock => {
+	if (stockSpans.length >= 1) {
+		stockSpans[0].textContent = newStock
+	}
+})
+
 // Данные о остатках товара для каждого цвета
 const productStock = {
 	blue: {
